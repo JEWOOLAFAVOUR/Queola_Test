@@ -10,7 +10,7 @@ import {
   View,
 } from "react-native";
 import { shapescapeData } from "../components/data";
-import { COLORS, FONTS, SIZES } from "../constants";
+import { COLORS, FONTS, images, SIZES } from "../constants";
 
 const ShapeScape = () => {
   return (
@@ -132,7 +132,7 @@ const ShapeScape = () => {
       </View>
 
       {/* blog section */}
-      <View>
+      <View style={{ marginBottom: SIZES.h2 }}>
         <View
           style={{
             height: SIZES.h1 * 1.8,
@@ -163,6 +163,156 @@ const ShapeScape = () => {
             marginTop: SIZES.h4,
           }}
         />
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginTop: SIZES.h3,
+          }}
+        >
+          <View
+            style={{
+              height: SIZES.h1 * 1.25,
+              width: SIZES.width * 0.3,
+              backgroundColor: COLORS.cyan,
+              borderRadius: SIZES.h4,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Text style={{ ...FONTS.body3, color: COLORS.primary_1 }}>
+              Education
+            </Text>
+          </View>
+          <Text style={{ ...FONTS.body3, color: COLORS.cyan }}>
+            July 25, 2024
+          </Text>
+        </View>
+        {/* details */}
+        <View style={{ marginTop: SIZES.h2 }}>
+          <Text style={{ ...FONTS.h2, color: COLORS.white }}>
+            Minecraft Education: Transforming How Kids Learn Through Play
+          </Text>
+          <Text
+            style={{
+              ...FONTS.body3c,
+              color: COLORS.white,
+              marginTop: SIZES.h4,
+            }}
+          >
+            Minecraft Education is a version of Minecraft created to help
+            students learn by doing. It's used in schools all over the world,
+            turning lessons in science, math, all history into meaningful
+            adventures.
+          </Text>
+        </View>
+        <TouchableOpacity
+          style={{
+            height: SIZES.h1 * 1.4,
+            width: SIZES.width * 0.35,
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: COLORS.cyan,
+            alignSelf: "center",
+            borderRadius: SIZES.h1,
+            marginTop: SIZES.h2,
+          }}
+        >
+          <Text
+            style={{
+              ...FONTS.body3,
+              color: COLORS.primary_1,
+              fontFamily: "Inter-Bold",
+            }}
+          >
+            Show more
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View style={{ marginBottom: SIZES.h2 * 2 }}>
+        {/* ready to take action */}
+        <View
+          style={{
+            backgroundColor: COLORS.gray6,
+            marginHorizontal: SIZES.width * 0.005,
+            paddingVertical: SIZES.h1,
+            paddingHorizontal: SIZES.h1,
+            borderRadius: SIZES.h4,
+          }}
+        >
+          <Text
+            style={{ ...FONTS.h1, color: COLORS.white, textAlign: "center" }}
+          >
+            Ready to take action?
+          </Text>
+          <Text
+            style={{
+              ...FONTS.body3a,
+              color: COLORS.chocolateBackground,
+              textAlign: "center",
+              marginTop: SIZES.h2,
+            }}
+          >
+            Book a free consultation to speak with our team and discuss your
+            goals. Let's bring your ideas and goals to life.
+          </Text>
+          <TouchableOpacity
+            style={{
+              height: SIZES.h1 * 1.5,
+              width: SIZES.width * 0.5,
+              justifyContent: "space-evenly",
+              alignItems: "center",
+              backgroundColor: COLORS.secondary_1,
+              alignSelf: "center",
+              borderRadius: SIZES.h1,
+              marginTop: SIZES.h1,
+              flexDirection: "row",
+              paddingHorizontal: SIZES.width * 0.05,
+              marginBottom: SIZES.h3,
+            }}
+          >
+            <Text style={{ ...FONTS.body3, color: COLORS.primary_1 }}>
+              Book a meeting
+            </Text>
+            <AntDesign name="arrow-right" size={16} color="black" />
+          </TouchableOpacity>
+          <Image
+            source={images.booking_img}
+            style={{
+              height: SIZES.height * 0.4,
+              width: SIZES.width * 0.8,
+              borderRadius: SIZES.h4,
+            }}
+          />
+        </View>
+        {/* footer */}
+        <View>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              marginTop: SIZES.h3,
+            }}
+          >
+            <Image
+              source={{
+                uri: "https://framerusercontent.com/images/3mHzuMg2QsYio7RkLzfPkhwMQdQ.png?scale-down-to=512&width=1200&height=1200",
+              }}
+              style={{ height: SIZES.h1, width: SIZES.h1 }}
+            />
+            <Text
+              style={{
+                ...FONTS.h2,
+                color: COLORS.white,
+                flex: 1,
+                marginLeft: SIZES.h3,
+              }}
+            >
+              Shapescape
+            </Text>
+          </View>
+        </View>
       </View>
     </ScrollView>
   );
