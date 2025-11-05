@@ -60,6 +60,39 @@ const ShapeScape = () => {
           playable experiences, reaching kids around the world through the games
           they already love.
         </Text>
+        <TouchableOpacity
+          style={{
+            height: SIZES.h1 * 1.5,
+            width: SIZES.width * 0.4,
+            backgroundColor: COLORS.secondary_1,
+            borderRadius: SIZES.h1,
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: SIZES.h1,
+          }}
+        >
+          <Text
+            style={{
+              ...FONTS.body4,
+              color: COLORS.primary_1,
+              fontFamily: "Inter-Medium",
+            }}
+          >
+            Get in touch
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text
+            style={{
+              ...FONTS.body3,
+              color: COLORS.white,
+              marginTop: SIZES.h4,
+              fontFamily: "Inter-Medium",
+            }}
+          >
+            Or book a call
+          </Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
