@@ -98,7 +98,7 @@ const ShapeScape = () => {
       <View style={{ marginTop: SIZES.h2 }}>
         {shapescapeData.map((data, index) => {
           return (
-            <View key={index} style={{ marginBottom: SIZES.h1 * 1.3 }}>
+            <View key={index} style={{ marginBottom: SIZES.h1 * 1.5 }}>
               <Image
                 source={{ uri: data.img }}
                 style={{
