@@ -292,7 +292,8 @@ const ShapeScape = () => {
             style={{
               flexDirection: "row",
               alignItems: "center",
-              marginTop: SIZES.h3,
+              marginTop: SIZES.h2,
+              marginBottom: SIZES.h2,
             }}
           >
             <Image
@@ -312,6 +313,18 @@ const ShapeScape = () => {
               Shapescape
             </Text>
           </View>
+          <Text style={{ ...FONTS.h1, color: COLORS.white }}>
+            Digital worlds that make learning engaging & exciting
+          </Text>
+          <Text
+            style={{
+              ...FONTS.body3a,
+              color: COLORS.chocolateBackground,
+              marginTop: SIZES.h3,
+            }}
+          >
+            Building for players & brands worldwide
+          </Text>
         </View>
       </View>
     </ScrollView>
