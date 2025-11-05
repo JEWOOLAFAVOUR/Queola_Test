@@ -20,6 +20,7 @@ export const COLORS = {
   gray: "#656B7D",
   gray2: "#F5F5F5",
   gray4: "#f6f5fa",
+  gray6: "#03152d",
 };
 
 export const SIZES = {

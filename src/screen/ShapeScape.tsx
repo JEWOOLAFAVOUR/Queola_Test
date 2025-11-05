@@ -95,6 +95,7 @@ const ShapeScape = () => {
           </Text>
         </TouchableOpacity>
       </View>
+
       <View style={{ marginTop: SIZES.h2 }}>
         {shapescapeData.map((data, index) => {
           return (
@@ -128,6 +129,40 @@ const ShapeScape = () => {
             </View>
           );
         })}
+      </View>
+
+      {/* blog section */}
+      <View>
+        <View
+          style={{
+            height: SIZES.h1 * 1.8,
+            width: SIZES.width * 0.5,
+            backgroundColor: COLORS.gray6,
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: SIZES.h4,
+            alignSelf: "center",
+            marginBottom: SIZES.h1,
+          }}
+        >
+          <Text style={{ ...FONTS.body3, color: COLORS.gray2 }}>
+            Resources & Insights
+          </Text>
+        </View>
+        <Text style={{ ...FONTS.h2, color: COLORS.white }}>
+          Our latest blog articles
+        </Text>
+        <Image
+          source={{
+            uri: "https://framerusercontent.com/images/4gVQgMduWWhsREaaP7ZR6gVTqBQ.png?width=800&height=450",
+          }}
+          style={{
+            height: SIZES.height * 0.3,
+            width: SIZES.width * 0.9,
+            borderRadius: SIZES.h4,
+            marginTop: SIZES.h4,
+          }}
+        />
       </View>
     </ScrollView>
   );
