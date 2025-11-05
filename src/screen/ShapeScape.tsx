@@ -41,7 +41,7 @@ const ShapeScape = () => {
       </View>
 
       {/* hero  */}
-      <View style={{ marginTop: SIZES.h2, alignItems: "center" }}>
+      <View style={{ marginTop: SIZES.h1, alignItems: "center" }}>
         <Text style={{ ...FONTS.largeTitleBold, color: COLORS.white }}>
           Serious topics
         </Text>
