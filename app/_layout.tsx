@@ -15,12 +15,12 @@ const _layout = () => {
   useEffect(() => {
     async function loadFonts() {
       await Font.loadAsync({
-        "Inter-Black": require("@/src/assets/fonts/Inter_24-Black.ttf"),
-        "Inter-Bold": require("@/src/assets/fonts/Inter_24-Bold.ttf"),
-        "Inter-ExtraBold": require("@/src/assets/fonts/Inter_24-ExtraBold.ttf"),
-        "Inter-Italic": require("@/src/assets/fonts/Inter_24-Italic.ttf"),
-        "Inter-Medium": require("@/src/assets/fonts/Inter_24-Medium.ttf"),
-        "Inter-Regular": require("@/src/assets/fonts/Inter_24-Regular.ttf"),
+        "Inter-Black": require("@/src/assets/fonts/Inter_24pt-Black.ttf"),
+        "Inter-Bold": require("@/src/assets/fonts/Inter_24pt-Bold.ttf"),
+        "Inter-ExtraBold": require("@/src/assets/fonts/Inter_24pt-ExtraBold.ttf"),
+        "Inter-Italic": require("@/src/assets/fonts/Inter_24pt-Italic.ttf"),
+        "Inter-Medium": require("@/src/assets/fonts/Inter_24pt-Medium.ttf"),
+        "Inter-Regular": require("@/src/assets/fonts/Inter_24pt-Regular.ttf"),
       });
       setFontsLoaded(true);
     }
@@ -35,7 +35,7 @@ const _layout = () => {
   return (
     <NavigationIndependentTree>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="IntroSlider" component={IntroSlider} />
           <Stack.Screen name="ShapeScape" component={ShapeScape} />
         </Stack.Navigator>
