@@ -102,7 +102,7 @@ const ShapeScape = () => {
               <Image
                 source={{ uri: data.img }}
                 style={{
-                  width: SIZES.width * 0.92,
+                  width: SIZES.width * 0.9,
                   height: SIZES.height * 0.35,
                   borderRadius: SIZES.h4,
                 }}
@@ -140,6 +140,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.primary_1,
     paddingTop: SIZES.h4,
-    paddingHorizontal: SIZES.width * 0.04,
+    paddingHorizontal: SIZES.width * 0.05,
   },
 });
