@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { shapescapeData } from "../components/data";
+import { shapescapeData, shapescapeFooterData } from "../components/data";
 import { COLORS, FONTS, images, SIZES } from "../constants";
 
 const ShapeScape = () => {
@@ -320,11 +320,34 @@ const ShapeScape = () => {
             style={{
               ...FONTS.body3a,
               color: COLORS.chocolateBackground,
-              marginTop: SIZES.h3,
+              marginTop: SIZES.h2,
             }}
           >
             Building for players & brands worldwide
           </Text>
+        </View>
+        {/* footer links */}
+        <View
+          style={{
+            flexDirection: "row",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            marginTop: SIZES.h2,
+          }}
+        >
+          {shapescapeFooterData.map((item, index) => {
+            return (
+              <TouchableOpacity
+                activeOpacity={0.7}
+                key={index}
+                style={{ width: "48%", marginBottom: SIZES.h3 }}
+              >
+                <Text style={{ ...FONTS.body3, color: COLORS.white }}>
+                  {item}
+                </Text>
+              </TouchableOpacity>
+            );
+          })}
         </View>
       </View>
     </ScrollView>

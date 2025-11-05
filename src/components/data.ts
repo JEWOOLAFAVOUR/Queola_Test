@@ -18,3 +18,21 @@ export const shapescapeData = [
     img: "https://framerusercontent.com/images/ggCH05boLFC7igVt5O4urLmg.jpg?scale-down-to=1024&width=7184&height=4792",
   },
 ];
+
+export const shapescapeFooterData = [
+  "Navigate",
+  "Connect",
+  "Home",
+  "Book a call",
+  "About",
+  "Instagram",
+  "Case Studies",
+  "Linkdeln",
+  "Marketplace",
+  "Twitter",
+  "Blog",
+  "Discord",
+  "Legal",
+  "Privacy Policy",
+  "Contact",
+];
