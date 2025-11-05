@@ -1,24 +1,47 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import IntroSlider from "@/src/screen/IntroSlider";
+import ShapeScape from "@/src/screen/ShapeScape";
+import {
+  NavigationContainer,
+  NavigationIndependentTree,
+} from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import * as Font from "expo-font";
+import React, { useEffect, useState } from "react";
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
+const _layout = () => {
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+  const Stack = createNativeStackNavigator();
 
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+  useEffect(() => {
+    async function loadFonts() {
+      await Font.loadAsync({
+        "Inter-Black": require("@/src/assets/fonts/Inter_24-Black.ttf"),
+        "Inter-Bold": require("@/src/assets/fonts/Inter_24-Bold.ttf"),
+        "Inter-ExtraBold": require("@/src/assets/fonts/Inter_24-ExtraBold.ttf"),
+        "Inter-Italic": require("@/src/assets/fonts/Inter_24-Italic.ttf"),
+        "Inter-Medium": require("@/src/assets/fonts/Inter_24-Medium.ttf"),
+        "Inter-Regular": require("@/src/assets/fonts/Inter_24-Regular.ttf"),
+      });
+      setFontsLoaded(true);
+    }
 
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
+    loadFonts();
+  }, []);
+
+  if (!fontsLoaded) {
+    return null; // Or return a loading component
+  }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <NavigationIndependentTree>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="IntroSlider" component={IntroSlider} />
+          <Stack.Screen name="ShapeScape" component={ShapeScape} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </NavigationIndependentTree>
   );
-}
+};
+
+export default _layout;
