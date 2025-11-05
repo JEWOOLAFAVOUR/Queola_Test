@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { shapescapeData } from "../components/data";
 import { COLORS, FONTS, SIZES } from "../constants";
 
 const ShapeScape = () => {
@@ -93,6 +94,40 @@ const ShapeScape = () => {
             Or book a call
           </Text>
         </TouchableOpacity>
+      </View>
+      <View style={{ marginTop: SIZES.h2 }}>
+        {shapescapeData.map((data, index) => {
+          return (
+            <View key={index} style={{ marginBottom: SIZES.h1 * 1.3 }}>
+              <Image
+                source={{ uri: data.img }}
+                style={{
+                  width: SIZES.width * 0.92,
+                  height: SIZES.height * 0.35,
+                  borderRadius: SIZES.h4,
+                }}
+              />
+              <Text
+                style={{
+                  ...FONTS.h2,
+                  color: COLORS.white,
+                  marginTop: SIZES.base,
+                }}
+              >
+                {data.title}
+              </Text>
+              <Text
+                style={{
+                  ...FONTS.body3,
+                  color: COLORS.chocolateBackground,
+                  marginTop: SIZES.base,
+                }}
+              >
+                {data.desc}
+              </Text>
+            </View>
+          );
+        })}
       </View>
     </ScrollView>
   );
