@@ -23,7 +23,7 @@ const IntroSlider = () => {
     {
       id: 2,
       title: "Wolffins",
-      onPress: () => navigation.navigate("ShapeScape"),
+      onPress: () => navigation.navigate("Wolffins"),
       bg: COLORS.secondary_1,
     },
     {
