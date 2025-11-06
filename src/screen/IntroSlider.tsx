@@ -22,7 +22,7 @@ const IntroSlider = () => {
     },
     {
       id: 2,
-      title: "Wolff",
+      title: "Wolffins",
       onPress: () => navigation.navigate("ShapeScape"),
       bg: COLORS.secondary_1,
     },

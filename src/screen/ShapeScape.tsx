@@ -6,6 +6,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -348,6 +349,61 @@ const ShapeScape = () => {
               </TouchableOpacity>
             );
           })}
+        </View>
+        {/* subscribe section  */}
+        <View>
+          <Text style={{ ...FONTS.h2, color: COLORS.white }}>
+            Subscribe to our newsletter
+          </Text>
+          <Text style={{ ...FONTS.body3c, color: COLORS.chocolateBackground }}>
+            We can't promise a new email every week, but can promise we won't
+            spam you until we have a great announcement to share
+          </Text>
+          {/* input section */}
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginTop: SIZES.h4,
+            }}
+          >
+            <View
+              style={{
+                height: SIZES.h1 * 2,
+                width: SIZES.width * 0.55,
+                backgroundColor: COLORS.white,
+                borderRadius: SIZES.h5,
+                justifyContent: "center",
+                paddingHorizontal: SIZES.h4,
+              }}
+            >
+              <TextInput
+                placeholder="name@email.com"
+                style={{ ...FONTS.body4 }}
+              />
+            </View>
+            <TouchableOpacity
+              style={{
+                height: SIZES.h1 * 2,
+                width: SIZES.width * 0.3,
+                backgroundColor: COLORS.secondary_1,
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: SIZES.h5,
+              }}
+            >
+              <Text
+                style={{
+                  ...FONTS.body3a,
+                  color: COLORS.primary_1,
+                  fontFamily: "Inter-Medium",
+                }}
+              >
+                Subscribe
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </ScrollView>
