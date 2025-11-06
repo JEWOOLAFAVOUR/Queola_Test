@@ -1,12 +1,19 @@
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Feather from "@expo/vector-icons/Feather";
 import React from "react";
-import { Image, StatusBar, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { COLORS, FONTS, SIZES, images } from "../constants";
 
 const Wolffins = () => {
   return (
-    <View style={styles.page}>
+    <ScrollView style={styles.page}>
       <StatusBar backgroundColor={COLORS.white} barStyle={"dark-content"} />
       <View
         style={{
@@ -38,7 +45,11 @@ const Wolffins = () => {
         />
       </View>
       <View
-        style={{ paddingTop: SIZES.h4, paddingHorizontal: SIZES.width * 0.05 }}
+        style={{
+          paddingTop: SIZES.h4,
+          paddingHorizontal: SIZES.width * 0.05,
+          marginBottom: SIZES.h1,
+        }}
       >
         <Text
           style={{
@@ -57,15 +68,40 @@ const Wolffins = () => {
             fontFamily: "Inter-Medium",
           }}
         >
-          We create transformative brands that move businesses, people and the
-          world forward.
+          We create transformative brands that move{" "}
+          <Text style={{ textDecorationLine: "underline" }}>
+            businesses, people
+          </Text>{" "}
+          and the{" "}
+          <Text style={{ textDecorationLine: "underline" }}>world forward</Text>
+          .
         </Text>
         <Image
           source={images.wolf_1}
-          style={{ height: SIZES.height * 0.3, width: SIZES.width * 0.9 }}
+          style={{
+            height: SIZES.height * 0.3,
+            width: SIZES.width * 0.9,
+            marginTop: SIZES.h2,
+          }}
         />
+        <View
+          style={{
+            height: 1,
+            backgroundColor: COLORS.black,
+            marginVertical: SIZES.h1,
+          }}
+        />
+        <Text
+          style={{
+            ...FONTS.body1,
+            color: COLORS.black,
+            fontFamily: "Inter-Medium",
+          }}
+        >
+          Selected Work
+        </Text>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
