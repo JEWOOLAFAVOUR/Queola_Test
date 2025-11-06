@@ -2,7 +2,7 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import Feather from "@expo/vector-icons/Feather";
 import React from "react";
 import { Image, StatusBar, StyleSheet, Text, View } from "react-native";
-import { COLORS, FONTS, SIZES } from "../constants";
+import { COLORS, FONTS, SIZES, images } from "../constants";
 
 const Wolffins = () => {
   return (
@@ -38,7 +38,7 @@ const Wolffins = () => {
         />
       </View>
       <View
-        style={{ paddingTop: SIZES.h4, paddingHorizontal: SIZES.width * 0.04 }}
+        style={{ paddingTop: SIZES.h4, paddingHorizontal: SIZES.width * 0.05 }}
       >
         <Text
           style={{
@@ -60,6 +60,10 @@ const Wolffins = () => {
           We create transformative brands that move businesses, people and the
           world forward.
         </Text>
+        <Image
+          source={images.wolf_1}
+          style={{ height: SIZES.height * 0.3, width: SIZES.width * 0.9 }}
+        />
       </View>
     </View>
   );
