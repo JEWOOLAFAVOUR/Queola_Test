@@ -15,6 +15,7 @@ export const COLORS = {
   primary_1: "#041c3b",
   secondary_1: "#cdf462",
   green: "#2BC652",
+  yellow_1: "#fff84b",
   chocolate: "#5d5c6c",
   chocolateBackground: "#CECFCD",
   gray: "#656B7D",

@@ -7,8 +7,10 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from "react-native";
+import { featuredNewsData } from "../components/data";
 import { COLORS, FONTS, SIZES, images } from "../constants";
 
 const Wolffins = () => {
@@ -291,254 +293,168 @@ const Wolffins = () => {
             Featured News
           </Text>
 
-          {/* News Item 1 */}
-          <View style={{ marginBottom: SIZES.h1 }}>
-            <Image
-              source={{
-                uri: "https://www.wolffolins.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2F4rnblstkg79m%2F1qG4Q1py9fe1O3tvzk63kB%2F69f5c59a895dcd42d75f088b06c74dd2%2FWO60_Article1_Icon_1300x1300.png%3Fw%3D700%26h%3D700&w=1920&q=75",
-              }}
-              style={{
-                width: "100%",
-                height: SIZES.height * 0.25,
-                borderRadius: SIZES.h5,
-              }}
-            />
-            <View
-              style={{
-                backgroundColor: COLORS.black,
-                paddingHorizontal: SIZES.h4,
-                paddingVertical: SIZES.h5,
-                borderRadius: SIZES.h5,
-                marginTop: -SIZES.h3,
-                marginHorizontal: SIZES.h4,
-              }}
-            >
-              <Text
+          {/* News Items Array */}
+          {featuredNewsData.map((item, index) => (
+            <View key={item.id} style={{ marginBottom: SIZES.h1 }}>
+              <Image
+                source={{ uri: item.image }}
                 style={{
-                  ...FONTS.body5,
-                  color: COLORS.white,
-                  textTransform: "uppercase",
+                  width: "100%",
+                  height: SIZES.height * 0.25,
+                  borderRadius: SIZES.h5,
+                }}
+              />
+              <View
+                style={{
+                  backgroundColor: COLORS.black,
+                  paddingHorizontal: SIZES.h4,
+                  paddingVertical: SIZES.h5,
+                  borderRadius: SIZES.h5,
+                  marginTop: -SIZES.h3,
+                  marginHorizontal: SIZES.h4,
                 }}
               >
-                Inside
-              </Text>
-            </View>
-            <Text
-              style={{
-                ...FONTS.body2,
-                color: COLORS.black,
-                fontFamily: "Inter-Medium",
-                marginTop: SIZES.h4,
-              }}
-            >
-              Dear 1965, thanks for the blueprint.
-            </Text>
-            <Text
-              style={{
-                ...FONTS.body4,
-                color: COLORS.gray,
-                marginTop: SIZES.h5,
-                lineHeight: 20,
-              }}
-            >
-              As we celebrate our 60th anniversary, we're revisiting the
-              blueprint that's shaped us for six decades – and still drives us
-              today.
-            </Text>
-          </View>
-
-          {/* News Item 2 */}
-          <View style={{ marginBottom: SIZES.h1 }}>
-            <Image
-              source={{
-                uri: "https://www.wolffolins.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2F4rnblstkg79m%2F1Erx8AaGJ3pYwC0nLraF5H%2F04ab9369127bdeabcd38841807af4d1b%2FWEBSITE_CROP_1300x1300__Square___circle_.png%3Fw%3D700%26h%3D700&w=1920&q=75",
-              }}
-              style={{
-                width: "100%",
-                height: SIZES.height * 0.25,
-                borderRadius: SIZES.h5,
-              }}
-            />
-            <View
-              style={{
-                backgroundColor: COLORS.black,
-                paddingHorizontal: SIZES.h4,
-                paddingVertical: SIZES.h5,
-                borderRadius: SIZES.h5,
-                marginTop: -SIZES.h3,
-                marginHorizontal: SIZES.h4,
-              }}
-            >
-              <Text
-                style={{
-                  ...FONTS.body5,
-                  color: COLORS.white,
-                  textTransform: "uppercase",
-                }}
-              >
-                Clients
-              </Text>
-            </View>
-            <Text
-              style={{
-                ...FONTS.body2,
-                color: COLORS.black,
-                fontFamily: "Inter-Medium",
-                marginTop: SIZES.h4,
-              }}
-            >
-              Blank Street's rebrand is full-on matcha core
-            </Text>
-            <Text
-              style={{
-                ...FONTS.body4,
-                color: COLORS.gray,
-                marginTop: SIZES.h5,
-                lineHeight: 20,
-              }}
-            >
-              Creative Director George Lavender caught up with Fast Company to
-              explore the Blank Street identity that keeps up.
-            </Text>
-          </View>
-
-          {/* News Item 3 */}
-          <View style={{ marginBottom: SIZES.h1 }}>
-            <Image
-              source={{
-                uri: "https://www.wolffolins.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2F4rnblstkg79m%2F4HU2l2IfGCD2w2ISBB41AA%2F38bcd705b6cb50129c6d7dfe43a1c963%2FMascots_crop.png%3Fw%3D700%26h%3D700&w=1920&q=75",
-              }}
-              style={{
-                width: "100%",
-                height: SIZES.height * 0.25,
-                borderRadius: SIZES.h5,
-              }}
-            />
-            <View
-              style={{
-                backgroundColor: COLORS.black,
-                paddingHorizontal: SIZES.h4,
-                paddingVertical: SIZES.h5,
-                borderRadius: SIZES.h5,
-                marginTop: -SIZES.h3,
-                marginHorizontal: SIZES.h4,
-              }}
-            >
-              <Text
-                style={{
-                  ...FONTS.body5,
-                  color: COLORS.white,
-                  textTransform: "uppercase",
-                }}
-              >
-                Thinking
-              </Text>
-            </View>
-            <Text
-              style={{
-                ...FONTS.body2,
-                color: COLORS.black,
-                fontFamily: "Inter-Medium",
-                marginTop: SIZES.h4,
-              }}
-            >
-              Why Japan and Korea are outsmarting Western brands with mascots
-            </Text>
-            <Text
-              style={{
-                ...FONTS.body4,
-                color: COLORS.gray,
-                marginTop: SIZES.h5,
-                lineHeight: 20,
-              }}
-            >
-              Creative Director Matthew Haysom explores how Western brands can
-              catch up by creating mascots that humanise products.
-            </Text>
-          </View>
-        </View>
-
-        {/* Footer */}
-        <View
-          style={{
-            marginTop: SIZES.h1,
-            paddingTop: SIZES.h1,
-            borderTopWidth: 1,
-            borderTopColor: COLORS.gray2,
-          }}
-        >
-          <Text
-            style={{
-              ...FONTS.h1,
-              color: COLORS.black,
-              textAlign: "center",
-              marginBottom: SIZES.h2,
-            }}
-          >
-            2025
-          </Text>
-          <Text
-            style={{
-              ...FONTS.h2,
-              color: COLORS.black,
-              textAlign: "center",
-              marginBottom: SIZES.h1,
-            }}
-          >
-            Wolff Olins
-          </Text>
-          <Text
-            style={{
-              ...FONTS.body3,
-              color: COLORS.gray,
-              textAlign: "center",
-              marginBottom: SIZES.h1,
-            }}
-          >
-            Talk to us or ask us anything.
-          </Text>
-
-          {/* Footer Links */}
-          <View
-            style={{
-              flexDirection: "row",
-              flexWrap: "wrap",
-              justifyContent: "space-between",
-              marginTop: SIZES.h2,
-              marginBottom: SIZES.h1 * 2,
-            }}
-          >
-            {[
-              "Contact Us",
-              "Cookie Policy",
-              "Privacy Notice",
-              "LinkedIn",
-              "Twitter",
-              "Instagram",
-              "YouTube",
-              "Archive",
-            ].map((item, index) => {
-              return (
-                <View
-                  key={index}
+                <Text
                   style={{
-                    width: "48%",
-                    marginBottom: SIZES.h4,
+                    ...FONTS.body5,
+                    color: COLORS.white,
+                    textTransform: "uppercase",
                   }}
                 >
-                  <Text
-                    style={{
-                      ...FONTS.body4,
-                      color: COLORS.gray,
-                      textDecorationLine: "underline",
-                    }}
-                  >
-                    {item}
-                  </Text>
-                </View>
-              );
-            })}
-          </View>
+                  {item.category}
+                </Text>
+              </View>
+              <Text
+                style={{
+                  ...FONTS.body2,
+                  color: COLORS.black,
+                  fontFamily: "Inter-Medium",
+                  marginTop: SIZES.h4,
+                }}
+              >
+                {item.title}
+              </Text>
+              <Text
+                style={{
+                  ...FONTS.body3a,
+                  color: COLORS.gray,
+                  marginTop: SIZES.h5,
+                  lineHeight: 20,
+                }}
+              >
+                {item.description}
+              </Text>
+              <TouchableOpacity style={{ marginTop: SIZES.h5 }}>
+                <Text
+                  style={{
+                    ...FONTS.body3c,
+                    color: COLORS.gray,
+                    textDecorationLine: "underline",
+                  }}
+                >
+                  Full Story
+                </Text>
+              </TouchableOpacity>
+            </View>
+          ))}
+          <TouchableOpacity
+            activeOpacity={0.6}
+            style={{
+              height: SIZES.h1 * 2,
+              width: SIZES.width * 0.5,
+              borderWidth: 2,
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: SIZES.h1,
+              alignSelf: "center",
+            }}
+          >
+            <Text style={{ ...FONTS.body3a, color: "center" }}>See More</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+      {/* Footer */}
+      <View
+        style={{
+          marginTop: SIZES.h1,
+          paddingTop: SIZES.h1,
+          borderTopWidth: 1,
+          borderTopColor: COLORS.gray2,
+          backgroundColor: COLORS.yellow_1,
+          paddingHorizontal: SIZES.width * 0.05,
+        }}
+      >
+        <Text
+          style={{
+            ...FONTS.h1,
+            color: COLORS.black,
+            textAlign: "center",
+            marginBottom: SIZES.h2,
+          }}
+        >
+          2025
+        </Text>
+        <Text
+          style={{
+            ...FONTS.h2,
+            color: COLORS.black,
+            textAlign: "center",
+            marginBottom: SIZES.h1,
+          }}
+        >
+          Wolff Olins
+        </Text>
+        <Text
+          style={{
+            ...FONTS.body3,
+            color: COLORS.black,
+            textAlign: "center",
+            marginBottom: SIZES.h1,
+          }}
+        >
+          Talk to us or ask us anything.
+        </Text>
+
+        {/* Footer Links */}
+        <View
+          style={{
+            flexDirection: "row",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            marginTop: SIZES.h2,
+            marginBottom: SIZES.h1 * 2,
+          }}
+        >
+          {[
+            "Contact Us",
+            "Cookie Policy",
+            "Privacy Notice",
+            "LinkedIn",
+            "Twitter",
+            "Instagram",
+            "YouTube",
+            "Archive",
+          ].map((item, index) => {
+            return (
+              <View
+                key={index}
+                style={{
+                  width: "48%",
+                  marginBottom: SIZES.h4,
+                }}
+              >
+                <Text
+                  style={{
+                    ...FONTS.body4,
+                    color: COLORS.black,
+                    textDecorationLine: "underline",
+                  }}
+                >
+                  {item}
+                </Text>
+              </View>
+            );
+          })}
         </View>
       </View>
     </ScrollView>
