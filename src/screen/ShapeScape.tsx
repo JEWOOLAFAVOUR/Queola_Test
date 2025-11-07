@@ -1,4 +1,5 @@
 import AntDesign from "@expo/vector-icons/AntDesign";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import {
   Image,
@@ -14,6 +15,7 @@ import { shapescapeData, shapescapeFooterData } from "../components/data";
 import { COLORS, FONTS, images, SIZES } from "../constants";
 
 const ShapeScape = () => {
+  const navigation = useNavigation();
   return (
     <ScrollView style={styles.page}>
       <StatusBar
@@ -63,6 +65,7 @@ const ShapeScape = () => {
           they already love.
         </Text>
         <TouchableOpacity
+          onPress={() => navigation.navigate("ShapeContact")}
           style={{
             height: SIZES.h1 * 1.5,
             width: SIZES.width * 0.4,

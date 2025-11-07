@@ -43,8 +43,43 @@ const Wolffins = () => {
           source={{
             uri: "https://www.wolffolins.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2F4rnblstkg79m%2F18EG6DImEQoL7MiuPoPPLm%2Fcec721ff4fe2283746e5e8ea12022d1a%2F00_Lloyds_Website_Carousel.jpg&w=1920&q=75",
           }}
-          style={{ width: SIZES.width, height: SIZES.height * 0.4 }}
+          style={{ width: SIZES.width, height: SIZES.height * 0.5 }}
         />
+        <View
+          style={{
+            position: "absolute",
+            bottom: SIZES.h5,
+            paddingHorizontal: SIZES.width * 0.04,
+          }}
+        >
+          <Text
+            style={{
+              ...FONTS.body2,
+              color: COLORS.white,
+              fontFamily: "Inter-Medium",
+            }}
+          >
+            Lloyds
+          </Text>
+          <Text
+            style={{
+              ...FONTS.body1,
+              color: COLORS.white,
+              fontFamily: "Inter-Medium",
+            }}
+          >
+            The people are the magic
+          </Text>
+          <Text
+            style={{
+              ...FONTS.body3,
+              color: COLORS.white,
+              fontFamily: "Inter-Medium",
+            }}
+          >
+            01/12
+          </Text>
+        </View>
       </View>
       <View
         style={{

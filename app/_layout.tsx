@@ -1,4 +1,5 @@
 import IntroSlider from "@/src/screen/IntroSlider";
+import ShapeContact from "@/src/screen/ShapeContact";
 import ShapeScape from "@/src/screen/ShapeScape";
 import Wolffins from "@/src/screen/Wolffins";
 import {
@@ -39,6 +40,7 @@ const _layout = () => {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="IntroSlider" component={IntroSlider} />
           <Stack.Screen name="ShapeScape" component={ShapeScape} />
+          <Stack.Screen name="ShapeContact" component={ShapeContact} />
           <Stack.Screen name="Wolffins" component={Wolffins} />
         </Stack.Navigator>
       </NavigationContainer>
