@@ -6,7 +6,11 @@ import ShapeCaseStudies from "@/src/screen/ShapeCaseStudies";
 import ShapeContact from "@/src/screen/ShapeContact";
 import ShapeMarketplace from "@/src/screen/ShapeMarketplace";
 import ShapeScape from "@/src/screen/ShapeScape";
+import WolfAbout from "@/src/screen/WolfAbout";
+import WolfContact from "@/src/screen/WolfContact";
 import Wolffins from "@/src/screen/Wolffins";
+import WolfNews from "@/src/screen/WolfNews";
+import WolfWork from "@/src/screen/WolfWork";
 import {
   NavigationContainer,
   NavigationIndependentTree,
@@ -52,6 +56,10 @@ const _layout = () => {
           <Stack.Screen name="ShapeContact" component={ShapeContact} />
           <Stack.Screen name="ShapeMarketplace" component={ShapeMarketplace} />
           <Stack.Screen name="Wolffins" component={Wolffins} />
+          <Stack.Screen name="WolfWork" component={WolfWork} />
+          <Stack.Screen name="WolfAbout" component={WolfAbout} />
+          <Stack.Screen name="WolfNews" component={WolfNews} />
+          <Stack.Screen name="WolfContact" component={WolfContact} />
         </Stack.Navigator>
       </NavigationContainer>
     </NavigationIndependentTree>
