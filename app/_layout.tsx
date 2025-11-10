@@ -1,5 +1,10 @@
 import IntroSlider from "@/src/screen/IntroSlider";
+import ShapeAbout from "@/src/screen/ShapeAbout";
+import ShapeBlog from "@/src/screen/ShapeBlog";
+import ShapeBookCall from "@/src/screen/ShapeBookCall";
+import ShapeCaseStudies from "@/src/screen/ShapeCaseStudies";
 import ShapeContact from "@/src/screen/ShapeContact";
+import ShapeMarketplace from "@/src/screen/ShapeMarketplace";
 import ShapeScape from "@/src/screen/ShapeScape";
 import Wolffins from "@/src/screen/Wolffins";
 import {
@@ -40,7 +45,12 @@ const _layout = () => {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="IntroSlider" component={IntroSlider} />
           <Stack.Screen name="ShapeScape" component={ShapeScape} />
+          <Stack.Screen name="ShapeAbout" component={ShapeAbout} />
+          <Stack.Screen name="ShapeBlog" component={ShapeBlog} />
+          <Stack.Screen name="ShapeBookCall" component={ShapeBookCall} />
+          <Stack.Screen name="ShapeCaseStudies" component={ShapeCaseStudies} />
           <Stack.Screen name="ShapeContact" component={ShapeContact} />
+          <Stack.Screen name="ShapeMarketplace" component={ShapeMarketplace} />
           <Stack.Screen name="Wolffins" component={Wolffins} />
         </Stack.Navigator>
       </NavigationContainer>

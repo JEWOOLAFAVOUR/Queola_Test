@@ -1,4 +1,4 @@
-import AntDesign from "@expo/vector-icons/AntDesign";
+import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import React, { useRef } from "react";
 import {
@@ -7,17 +7,50 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
-import { shapescapeData, shapescapeFooterData } from "../components/data";
 import { COLORS, FONTS, images, SIZES } from "../constants";
 
-const ShapeScape = () => {
+const ShapeMarketplace = () => {
   const navigation = useNavigation();
   const bottomSheetRef = useRef<any>(null);
+
+  const marketplaceItems = [
+    {
+      title: "Bosses Add-On",
+      image:
+        "https://framerusercontent.com/images/4gVQgMduWWhsREaaP7ZR6gVTqBQ.png?width=800&height=450",
+      category: "Adventure",
+      description:
+        "Epic boss battles and challenging encounters for Minecraft Education",
+    },
+    {
+      title: "The Extinct - DINOSAURS Add-On",
+      image:
+        "https://framerusercontent.com/images/J58AVEIufyb36SzwjGC0Og6Q6yg.png?scale-down-to=512&width=1000&height=1000",
+      category: "Education",
+      description:
+        "Explore prehistoric worlds and learn about dinosaurs in an immersive experience",
+    },
+    {
+      title: "Smurfs DLC",
+      image:
+        "https://framerusercontent.com/images/skqVZH5btzgQopDGEFjkeVmI1co.png?scale-down-to=512&width=1000&height=1000",
+      category: "Family",
+      description:
+        "Join the beloved Smurfs characters in their magical village adventures",
+    },
+    {
+      title: "Dragons Add-On",
+      image:
+        "https://framerusercontent.com/images/KuRhSfCb6pVKfz9UhMhKIQl5GhE.png?scale-down-to=512&width=1000&height=1000",
+      category: "Fantasy",
+      description:
+        "Tame and ride dragons in epic fantasy adventures through mystical realms",
+    },
+  ];
 
   const menuItems = [
     {
@@ -32,10 +65,7 @@ const ShapeScape = () => {
       title: "Case Studies",
       onPress: () => navigation.navigate("ShapeCaseStudies" as never),
     },
-    {
-      title: "Marketplace",
-      onPress: () => navigation.navigate("ShapeMarketplace" as never),
-    },
+    { title: "Marketplace", onPress: () => {} },
     { title: "Blog", onPress: () => navigation.navigate("ShapeBlog" as never) },
     {
       title: "Contact",
@@ -58,12 +88,17 @@ const ShapeScape = () => {
           backgroundColor={COLORS.primary_1}
           barStyle={"light-content"}
         />
+
+        {/* Header */}
         <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <AntDesign name="left" size={24} color="white" />
+          </TouchableOpacity>
           <Image
             source={{
               uri: "https://framerusercontent.com/images/3mHzuMg2QsYio7RkLzfPkhwMQdQ.png?scale-down-to=512&width=1200&height=1200",
             }}
-            style={{ height: SIZES.h1, width: SIZES.h1 }}
+            style={{ height: SIZES.h1, width: SIZES.h1, marginLeft: SIZES.h4 }}
           />
           <Text
             style={{
@@ -76,19 +111,21 @@ const ShapeScape = () => {
             ShapeScape
           </Text>
           <TouchableOpacity onPress={handleOpenMenu}>
-            <AntDesign name="menu" size={24} color="white" />
+            <AntDesign name="menu-fold" size={24} color="white" />
           </TouchableOpacity>
         </View>
 
-        {/* hero  */}
+        {/* Page Title */}
         <View style={{ marginTop: SIZES.h1, alignItems: "center" }}>
           <Text style={{ ...FONTS.largeTitleBold, color: COLORS.white }}>
-            Serious topics
+            Marketplace
           </Text>
-          <Text
-            style={{ ...FONTS.h2, color: COLORS.white, marginTop: SIZES.h5 }}
-          >
-            Played by millions
+        </View>
+
+        {/* Subtitle */}
+        <View style={{ marginTop: SIZES.h2, alignItems: "center" }}>
+          <Text style={{ ...FONTS.h2, color: COLORS.white }}>
+            Our Marketplace Experiences
           </Text>
           <Text
             style={{
@@ -98,184 +135,51 @@ const ShapeScape = () => {
               marginTop: SIZES.h4,
             }}
           >
-            We help organizations turn their educational mission into powerful,
-            playable experiences, reaching kids around the world through the
-            games they already love.
+            Discover our work for the Minecraft Marketplace
           </Text>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("ShapeContact" as never)}
-            style={{
-              height: SIZES.h1 * 1.5,
-              width: SIZES.width * 0.4,
-              backgroundColor: COLORS.secondary_1,
-              borderRadius: SIZES.h1,
-              justifyContent: "center",
-              alignItems: "center",
-              marginTop: SIZES.h1,
-            }}
-          >
-            <Text
-              style={{
-                ...FONTS.body4,
-                color: COLORS.primary_1,
-                fontFamily: "Inter-Medium",
-              }}
-            >
-              Get in touch
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("ShapeContact" as never)}
-          >
-            <Text
-              style={{
-                ...FONTS.body3,
-                color: COLORS.white,
-                marginTop: SIZES.h4,
-                fontFamily: "Inter-Medium",
-              }}
-            >
-              Or book a call
-            </Text>
-          </TouchableOpacity>
         </View>
 
-        <View style={{ marginTop: SIZES.h2 }}>
-          {shapescapeData.map((data, index) => {
-            return (
-              <View key={index} style={{ marginBottom: SIZES.h1 * 1.5 }}>
-                <Image
-                  source={{ uri: data.img }}
-                  style={{
-                    width: SIZES.width * 0.9,
-                    height: SIZES.height * 0.35,
-                    borderRadius: SIZES.h4,
-                  }}
-                />
-                <Text
-                  style={{
-                    ...FONTS.h2,
-                    color: COLORS.white,
-                    marginTop: SIZES.base,
-                  }}
+        {/* Marketplace Items Grid */}
+        <View style={{ marginTop: SIZES.h1 }}>
+          {marketplaceItems.map((item, index) => (
+            <TouchableOpacity key={index} style={styles.marketplaceCard}>
+              <Image
+                source={{ uri: item.image }}
+                style={styles.marketplaceImage}
+              />
+              <View style={styles.marketplaceContent}>
+                <View
+                  style={[
+                    styles.categoryTag,
+                    {
+                      backgroundColor:
+                        item.category === "Adventure"
+                          ? COLORS.secondary_1
+                          : item.category === "Education"
+                          ? COLORS.cyan
+                          : item.category === "Family"
+                          ? COLORS.yellow_1
+                          : COLORS.green,
+                    },
+                  ]}
                 >
-                  {data.title}
+                  <Text style={styles.categoryText}>{item.category}</Text>
+                </View>
+                <Text style={styles.marketplaceTitle}>{item.title}</Text>
+                <Text style={styles.marketplaceDescription}>
+                  {item.description}
                 </Text>
-                <Text
-                  style={{
-                    ...FONTS.body3,
-                    color: COLORS.chocolateBackground,
-                    marginTop: SIZES.base,
-                  }}
-                >
-                  {data.desc}
-                </Text>
+                <View style={styles.exploreContainer}>
+                  <Text style={styles.exploreText}>Explore</Text>
+                  <AntDesign name="right" size={16} color={COLORS.white} />
+                </View>
               </View>
-            );
-          })}
+            </TouchableOpacity>
+          ))}
         </View>
 
-        {/* blog section */}
-        <View style={{ marginBottom: SIZES.h2 }}>
-          <View
-            style={{
-              height: SIZES.h1 * 1.8,
-              width: SIZES.width * 0.5,
-              backgroundColor: COLORS.gray6,
-              justifyContent: "center",
-              alignItems: "center",
-              borderRadius: SIZES.h4,
-              alignSelf: "center",
-              marginBottom: SIZES.h1,
-            }}
-          >
-            <Text style={{ ...FONTS.body3, color: COLORS.gray2 }}>
-              Resources & Insights
-            </Text>
-          </View>
-          <Text style={{ ...FONTS.h2, color: COLORS.white }}>
-            Our latest blog articles
-          </Text>
-          <Image
-            source={{
-              uri: "https://framerusercontent.com/images/4gVQgMduWWhsREaaP7ZR6gVTqBQ.png?width=800&height=450",
-            }}
-            style={{
-              height: SIZES.height * 0.3,
-              width: SIZES.width * 0.9,
-              borderRadius: SIZES.h4,
-              marginTop: SIZES.h4,
-            }}
-          />
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginTop: SIZES.h3,
-            }}
-          >
-            <View
-              style={{
-                height: SIZES.h1 * 1.25,
-                width: SIZES.width * 0.3,
-                backgroundColor: COLORS.cyan,
-                borderRadius: SIZES.h4,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Text style={{ ...FONTS.body3, color: COLORS.primary_1 }}>
-                Education
-              </Text>
-            </View>
-            <Text style={{ ...FONTS.body3, color: COLORS.cyan }}>
-              July 25, 2024
-            </Text>
-          </View>
-          {/* details */}
-          <View style={{ marginTop: SIZES.h2 }}>
-            <Text style={{ ...FONTS.h2, color: COLORS.white }}>
-              Minecraft Education: Transforming How Kids Learn Through Play
-            </Text>
-            <Text
-              style={{
-                ...FONTS.body3c,
-                color: COLORS.white,
-                marginTop: SIZES.h4,
-              }}
-            >
-              Minecraft Education is a version of Minecraft created to help
-              students learn by doing. It's used in schools all over the world,
-              turning lessons in science, math, all history into meaningful
-              adventures.
-            </Text>
-          </View>
-          <TouchableOpacity
-            style={{
-              height: SIZES.h1 * 1.4,
-              width: SIZES.width * 0.35,
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: COLORS.cyan,
-              alignSelf: "center",
-              borderRadius: SIZES.h1,
-              marginTop: SIZES.h2,
-            }}
-          >
-            <Text
-              style={{
-                ...FONTS.body3,
-                color: COLORS.primary_1,
-                fontFamily: "Inter-Bold",
-              }}
-            >
-              Show more
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View style={{ marginBottom: SIZES.h2 * 2 }}>
-          {/* ready to take action */}
+        {/* Ready to create section */}
+        <View style={{ marginTop: SIZES.h1 * 2, marginBottom: SIZES.h2 }}>
           <View
             style={{
               backgroundColor: COLORS.gray6,
@@ -292,7 +196,7 @@ const ShapeScape = () => {
                 textAlign: "center",
               }}
             >
-              Ready to take action?
+              Ready to create your own?
             </Text>
             <Text
               style={{
@@ -302,14 +206,13 @@ const ShapeScape = () => {
                 marginTop: SIZES.h2,
               }}
             >
-              Book a free consultation to speak with our team and discuss your
-              goals. Let's bring your ideas and goals to life.
+              Partner with us to bring your educational content to millions of
+              players worldwide through the Minecraft Marketplace.
             </Text>
             <TouchableOpacity
-              onPress={() => navigation.navigate("ShapeBookCall" as never)}
               style={{
                 height: SIZES.h1 * 1.5,
-                width: SIZES.width * 0.5,
+                width: SIZES.width * 0.6,
                 justifyContent: "space-evenly",
                 alignItems: "center",
                 backgroundColor: COLORS.secondary_1,
@@ -321,10 +224,16 @@ const ShapeScape = () => {
                 marginBottom: SIZES.h3,
               }}
             >
-              <Text style={{ ...FONTS.body3, color: COLORS.primary_1 }}>
-                Book a meeting
+              <Text
+                style={{
+                  ...FONTS.body3,
+                  color: COLORS.primary_1,
+                  fontFamily: "Inter-Medium",
+                }}
+              >
+                Start your project
               </Text>
-              <AntDesign name="arrow-right" size={16} color="black" />
+              <AntDesign name="right" size={16} color="black" />
             </TouchableOpacity>
             <Image
               source={images.booking_img}
@@ -335,13 +244,15 @@ const ShapeScape = () => {
               }}
             />
           </View>
-          {/* footer */}
+        </View>
+
+        {/* Footer */}
+        <View style={{ marginBottom: SIZES.h2 * 2 }}>
           <View>
             <View
               style={{
                 flexDirection: "row",
                 alignItems: "center",
-                marginTop: SIZES.h2,
                 marginBottom: SIZES.h2,
               }}
             >
@@ -349,33 +260,29 @@ const ShapeScape = () => {
                 source={{
                   uri: "https://framerusercontent.com/images/3mHzuMg2QsYio7RkLzfPkhwMQdQ.png?scale-down-to=512&width=1200&height=1200",
                 }}
-                style={{ height: SIZES.h1, width: SIZES.h1 }}
+                style={{ height: SIZES.h2, width: SIZES.h2 }}
               />
               <Text
                 style={{
-                  ...FONTS.h2,
+                  ...FONTS.h3,
                   color: COLORS.white,
-                  flex: 1,
-                  marginLeft: SIZES.h3,
+                  marginLeft: SIZES.h4,
                 }}
               >
-                Shapescape
+                ShapeScape
               </Text>
             </View>
-            <Text style={{ ...FONTS.h1, color: COLORS.white }}>
-              Digital worlds that make learning engaging & exciting
-            </Text>
             <Text
               style={{
-                ...FONTS.body3a,
-                color: COLORS.chocolateBackground,
-                marginTop: SIZES.h2,
+                ...FONTS.body3,
+                color: COLORS.gray,
+                marginBottom: SIZES.h3,
               }}
             >
-              Building for players & brands worldwide
+              Digital worlds that make learning engaging & exciting
             </Text>
           </View>
-          {/* footer links */}
+
           <View
             style={{
               flexDirection: "row",
@@ -384,68 +291,106 @@ const ShapeScape = () => {
               marginTop: SIZES.h2,
             }}
           >
-            {shapescapeFooterData.map((item, index) => {
-              return (
+            <View style={{ width: "48%" }}>
+              <Text
+                style={{
+                  ...FONTS.body3,
+                  color: COLORS.white,
+                  fontFamily: "Inter-Medium",
+                  marginBottom: SIZES.h4,
+                }}
+              >
+                Navigate
+              </Text>
+              {["Home", "About", "Case Studies", "Marketplace", "Blog"].map(
+                (link, index) => (
+                  <TouchableOpacity
+                    key={index}
+                    style={{ marginBottom: SIZES.h5 }}
+                  >
+                    <Text style={{ ...FONTS.body4, color: COLORS.gray }}>
+                      {link}
+                    </Text>
+                  </TouchableOpacity>
+                )
+              )}
+            </View>
+            <View style={{ width: "48%" }}>
+              <Text
+                style={{
+                  ...FONTS.body3,
+                  color: COLORS.white,
+                  fontFamily: "Inter-Medium",
+                  marginBottom: SIZES.h4,
+                }}
+              >
+                Connect
+              </Text>
+              {[
+                "Book a call",
+                "Instagram",
+                "LinkedIn",
+                "Twitter",
+                "Discord",
+              ].map((link, index) => (
                 <TouchableOpacity
-                  activeOpacity={0.7}
                   key={index}
-                  style={{ width: "48%", marginBottom: SIZES.h3 }}
+                  style={{ marginBottom: SIZES.h5 }}
                 >
-                  <Text style={{ ...FONTS.body3, color: COLORS.white }}>
-                    {item}
+                  <Text style={{ ...FONTS.body4, color: COLORS.gray }}>
+                    {link}
                   </Text>
                 </TouchableOpacity>
-              );
-            })}
+              ))}
+            </View>
           </View>
-          {/* subscribe section  */}
+
           <View>
-            <Text style={{ ...FONTS.h2, color: COLORS.white }}>
+            <Text
+              style={{
+                ...FONTS.body4,
+                color: COLORS.gray,
+                marginTop: SIZES.h2,
+              }}
+            >
               Subscribe to our newsletter
             </Text>
             <Text
-              style={{ ...FONTS.body3c, color: COLORS.chocolateBackground }}
+              style={{
+                ...FONTS.body5,
+                color: COLORS.gray2,
+                marginTop: SIZES.h5,
+              }}
             >
               We can't promise a new email every week, but can promise we won't
               spam you until we have a great announcement to share
             </Text>
-            {/* input section */}
             <View
               style={{
                 flexDirection: "row",
                 alignItems: "center",
-                justifyContent: "space-between",
                 marginTop: SIZES.h4,
+                borderWidth: 1,
+                borderColor: COLORS.gray6,
+                borderRadius: SIZES.h4,
+                paddingHorizontal: SIZES.h4,
+                paddingVertical: SIZES.h5,
               }}
             >
-              <View
-                style={{
-                  height: SIZES.h1 * 2,
-                  width: SIZES.width * 0.55,
-                  backgroundColor: COLORS.white,
-                  borderRadius: SIZES.h5,
-                  justifyContent: "center",
-                  paddingHorizontal: SIZES.h4,
-                }}
-              >
-                <TextInput
-                  placeholder="name@email.com"
-                  style={{ ...FONTS.body4 }}
-                />
-              </View>
+              <Text style={{ ...FONTS.body4, color: COLORS.gray, flex: 1 }}>
+                Enter your email
+              </Text>
               <TouchableOpacity
                 style={{
-                  height: SIZES.h1 * 2,
-                  width: SIZES.width * 0.3,
                   backgroundColor: COLORS.secondary_1,
-                  justifyContent: "center",
-                  alignItems: "center",
+                  paddingHorizontal: SIZES.h4,
+                  paddingVertical: SIZES.h5,
                   borderRadius: SIZES.h5,
                 }}
               >
                 <Text
                   style={{
-                    ...FONTS.body3a,
+                    ...FONTS.body5,
                     color: COLORS.primary_1,
                     fontFamily: "Inter-Medium",
                   }}
@@ -524,7 +469,7 @@ const ShapeScape = () => {
   );
 };
 
-export default ShapeScape;
+export default ShapeMarketplace;
 
 const styles = StyleSheet.create({
   page: {
@@ -532,6 +477,55 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary_1,
     paddingTop: SIZES.h4,
     paddingHorizontal: SIZES.width * 0.05,
+  },
+  marketplaceCard: {
+    backgroundColor: COLORS.gray6,
+    borderRadius: SIZES.h4,
+    marginBottom: SIZES.h2,
+    overflow: "hidden",
+  },
+  marketplaceImage: {
+    width: "100%",
+    height: SIZES.height * 0.25,
+    resizeMode: "cover",
+  },
+  marketplaceContent: {
+    padding: SIZES.h3,
+  },
+  categoryTag: {
+    alignSelf: "flex-start",
+    paddingHorizontal: SIZES.h4,
+    paddingVertical: SIZES.h5,
+    borderRadius: SIZES.h4,
+    marginBottom: SIZES.h3,
+  },
+  categoryText: {
+    ...FONTS.body5,
+    color: COLORS.primary_1,
+    fontFamily: "Inter-Medium",
+  },
+  marketplaceTitle: {
+    ...FONTS.h3,
+    color: COLORS.white,
+    marginBottom: SIZES.h3,
+    fontFamily: "Inter-Bold",
+  },
+  marketplaceDescription: {
+    ...FONTS.body4,
+    color: COLORS.gray,
+    marginBottom: SIZES.h3,
+    lineHeight: SIZES.h4 * 1.4,
+  },
+  exploreContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: SIZES.h4,
+  },
+  exploreText: {
+    ...FONTS.body4,
+    color: COLORS.white,
+    marginRight: SIZES.h5,
+    fontFamily: "Inter-Medium",
   },
   bottomSheetContainer: {
     backgroundColor: COLORS.primary_1,

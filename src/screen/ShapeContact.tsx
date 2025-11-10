@@ -52,7 +52,7 @@ const ShapeContact = () => {
           onPress={() => navigation.goBack()}
           style={{ marginRight: SIZES.h4 }}
         >
-          <AntDesign name="arrowleft" size={24} color="white" />
+          <AntDesign name="arrow-left" size={24} color="white" />
         </TouchableOpacity>
         <Image
           source={{
@@ -70,9 +70,9 @@ const ShapeContact = () => {
         >
           ShapeScape
         </Text>
-        <TouchableOpacity>
+        {/* <TouchableOpacity>
           <AntDesign name="menu" size={24} color="white" />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       {/* Hero Section */}

@@ -12,22 +12,61 @@ import {
   View,
 } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
-import { shapescapeData, shapescapeFooterData } from "../components/data";
+import { shapescapeFooterData } from "../components/data";
 import { COLORS, FONTS, images, SIZES } from "../constants";
 
-const ShapeScape = () => {
+const ShapeAbout = () => {
   const navigation = useNavigation();
   const bottomSheetRef = useRef<any>(null);
+
+  const teamMembers = {
+    belgium: [
+      {
+        name: "Luigi Belli",
+        image:
+          "https://framerusercontent.com/images/skqVZH5btzgQopDGEFjkeVmI1co.png?scale-down-to=512&width=1000&height=1000",
+      },
+      {
+        name: "Bram Wulteputte",
+        image:
+          "https://framerusercontent.com/images/J58AVEIufyb36SzwjGC0Og6Q6yg.png?scale-down-to=512&width=1000&height=1000",
+      },
+      {
+        name: "Fabrizio La Rosa",
+        image:
+          "https://fasset.shapescape.com/images/yr9xfZT1qxMgb9UPEA2hDKOZfg.jpeg?lossless=1&width=420&height=420",
+      },
+    ],
+    denmark: [
+      {
+        name: "Frederik Schunck",
+        image:
+          "https://fasset.shapescape.com/images/AOgWwz53UugW4HwTGv8sYPOIetg.jpg?width=640&height=1024",
+      },
+      {
+        name: "Bram van Gent",
+        image:
+          "https://fasset.shapescape.com/images/BBogk0gq7KWsqLCiFcdwsBzGXxE.png?scale-down-to=512&width=1000&height=1000",
+      },
+      {
+        name: "August Gade",
+        image:
+          "https://fasset.shapescape.com/images/b5LnymtFUeD78CmxccN7TjD9sY.png?scale-down-to=512&width=1000&height=1000",
+      },
+      {
+        name: "Johannes Neumann",
+        image:
+          "https://fasset.shapescape.com/images/K5X2Cj7MYcGCCF5cJv9zseVTwqI.png?scale-down-to=512&width=1000&height=1000",
+      },
+    ],
+  };
 
   const menuItems = [
     {
       title: "Home",
       onPress: () => navigation.navigate("ShapeScape" as never),
     },
-    {
-      title: "About",
-      onPress: () => navigation.navigate("ShapeAbout" as never),
-    },
+    { title: "About", onPress: () => {} },
     {
       title: "Case Studies",
       onPress: () => navigation.navigate("ShapeCaseStudies" as never),
@@ -58,12 +97,17 @@ const ShapeScape = () => {
           backgroundColor={COLORS.primary_1}
           barStyle={"light-content"}
         />
+
+        {/* Header */}
         <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <AntDesign name="left" size={24} color="white" />
+          </TouchableOpacity>
           <Image
             source={{
               uri: "https://framerusercontent.com/images/3mHzuMg2QsYio7RkLzfPkhwMQdQ.png?scale-down-to=512&width=1200&height=1200",
             }}
-            style={{ height: SIZES.h1, width: SIZES.h1 }}
+            style={{ height: SIZES.h1, width: SIZES.h1, marginLeft: SIZES.h3 }}
           />
           <Text
             style={{
@@ -80,202 +124,198 @@ const ShapeScape = () => {
           </TouchableOpacity>
         </View>
 
-        {/* hero  */}
+        {/* Hero Section */}
         <View style={{ marginTop: SIZES.h1, alignItems: "center" }}>
           <Text style={{ ...FONTS.largeTitleBold, color: COLORS.white }}>
-            Serious topics
+            About us
           </Text>
+        </View>
+
+        {/* Who We Are Section */}
+        <View style={{ marginTop: SIZES.h1 * 1.5 }}>
           <Text
-            style={{ ...FONTS.h2, color: COLORS.white, marginTop: SIZES.h5 }}
+            style={{ ...FONTS.h1, color: COLORS.white, textAlign: "center" }}
           >
-            Played by millions
+            Who we are
           </Text>
           <Text
             style={{
-              ...FONTS.body4,
+              ...FONTS.body3,
               color: COLORS.white,
               textAlign: "center",
-              marginTop: SIZES.h4,
+              marginTop: SIZES.h3,
+              lineHeight: SIZES.h2,
             }}
           >
-            We help organizations turn their educational mission into powerful,
-            playable experiences, reaching kids around the world through the
-            games they already love.
+            We blend gaming and education to create playful experiences in
+            Minecraft. From Add-Ons enjoyed by millions to custom learning
+            worlds for schools and institutions, we turn imagination into
+            interactive adventures that inspire creativity and curiosity.
           </Text>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("ShapeContact" as never)}
-            style={{
-              height: SIZES.h1 * 1.5,
-              width: SIZES.width * 0.4,
-              backgroundColor: COLORS.secondary_1,
-              borderRadius: SIZES.h1,
-              justifyContent: "center",
-              alignItems: "center",
-              marginTop: SIZES.h1,
-            }}
-          >
-            <Text
-              style={{
-                ...FONTS.body4,
-                color: COLORS.primary_1,
-                fontFamily: "Inter-Medium",
-              }}
-            >
-              Get in touch
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("ShapeContact" as never)}
-          >
-            <Text
-              style={{
-                ...FONTS.body3,
-                color: COLORS.white,
-                marginTop: SIZES.h4,
-                fontFamily: "Inter-Medium",
-              }}
-            >
-              Or book a call
-            </Text>
-          </TouchableOpacity>
         </View>
 
-        <View style={{ marginTop: SIZES.h2 }}>
-          {shapescapeData.map((data, index) => {
-            return (
-              <View key={index} style={{ marginBottom: SIZES.h1 * 1.5 }}>
-                <Image
-                  source={{ uri: data.img }}
-                  style={{
-                    width: SIZES.width * 0.9,
-                    height: SIZES.height * 0.35,
-                    borderRadius: SIZES.h4,
-                  }}
-                />
-                <Text
-                  style={{
-                    ...FONTS.h2,
-                    color: COLORS.white,
-                    marginTop: SIZES.base,
-                  }}
-                >
-                  {data.title}
-                </Text>
-                <Text
-                  style={{
-                    ...FONTS.body3,
-                    color: COLORS.chocolateBackground,
-                    marginTop: SIZES.base,
-                  }}
-                >
-                  {data.desc}
-                </Text>
-              </View>
-            );
-          })}
-        </View>
-
-        {/* blog section */}
-        <View style={{ marginBottom: SIZES.h2 }}>
-          <View
+        {/* Belgium Team */}
+        <View style={{ marginTop: SIZES.h1 * 1.5 }}>
+          <Text
+            style={{ ...FONTS.h2, color: COLORS.white, marginBottom: SIZES.h3 }}
+          >
+            Belgium
+          </Text>
+          <Text
             style={{
-              height: SIZES.h1 * 1.8,
-              width: SIZES.width * 0.5,
-              backgroundColor: COLORS.gray6,
-              justifyContent: "center",
-              alignItems: "center",
-              borderRadius: SIZES.h4,
-              alignSelf: "center",
+              ...FONTS.body3,
+              color: COLORS.chocolateBackground,
               marginBottom: SIZES.h1,
             }}
           >
-            <Text style={{ ...FONTS.body3, color: COLORS.gray2 }}>
-              Resources & Insights
-            </Text>
-          </View>
-          <Text style={{ ...FONTS.h2, color: COLORS.white }}>
-            Our latest blog articles
+            Our Ghent-based crew is responsible for all of Shapescape's
+            Education products and services
           </Text>
-          <Image
-            source={{
-              uri: "https://framerusercontent.com/images/4gVQgMduWWhsREaaP7ZR6gVTqBQ.png?width=800&height=450",
-            }}
-            style={{
-              height: SIZES.height * 0.3,
-              width: SIZES.width * 0.9,
-              borderRadius: SIZES.h4,
-              marginTop: SIZES.h4,
-            }}
-          />
+
           <View
             style={{
               flexDirection: "row",
+              flexWrap: "wrap",
               justifyContent: "space-between",
-              alignItems: "center",
+            }}
+          >
+            {teamMembers.belgium.map((member, index) => (
+              <View key={index} style={styles.teamMember}>
+                <Image
+                  source={{ uri: member.image }}
+                  style={styles.teamMemberImage}
+                />
+                <Text style={styles.teamMemberName}>{member.name}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+
+        {/* Denmark Team */}
+        <View style={{ marginTop: SIZES.h1 * 1.5 }}>
+          <Text
+            style={{ ...FONTS.h2, color: COLORS.white, marginBottom: SIZES.h3 }}
+          >
+            Denmark
+          </Text>
+          <Text
+            style={{
+              ...FONTS.body3,
+              color: COLORS.chocolateBackground,
+              marginBottom: SIZES.h1,
+            }}
+          >
+            Our team in Copenhagen designs and develops Shapescape's Minecraft
+            Marketplace products
+          </Text>
+
+          <View
+            style={{
+              flexDirection: "row",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+            }}
+          >
+            {teamMembers.denmark.map((member, index) => (
+              <View key={index} style={styles.teamMember}>
+                <Image
+                  source={{ uri: member.image }}
+                  style={styles.teamMemberImage}
+                />
+                <Text style={styles.teamMemberName}>{member.name}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+
+        {/* Our Mission Section */}
+        <View style={{ marginTop: SIZES.h1 * 2 }}>
+          <Text
+            style={{ ...FONTS.h1, color: COLORS.white, textAlign: "center" }}
+          >
+            Our mission
+          </Text>
+          <Text
+            style={{
+              ...FONTS.h2,
+              color: COLORS.white,
+              textAlign: "center",
               marginTop: SIZES.h3,
             }}
           >
-            <View
-              style={{
-                height: SIZES.h1 * 1.25,
-                width: SIZES.width * 0.3,
-                backgroundColor: COLORS.cyan,
-                borderRadius: SIZES.h4,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Text style={{ ...FONTS.body3, color: COLORS.primary_1 }}>
-                Education
-              </Text>
-            </View>
-            <Text style={{ ...FONTS.body3, color: COLORS.cyan }}>
-              July 25, 2024
-            </Text>
-          </View>
-          {/* details */}
-          <View style={{ marginTop: SIZES.h2 }}>
-            <Text style={{ ...FONTS.h2, color: COLORS.white }}>
-              Minecraft Education: Transforming How Kids Learn Through Play
-            </Text>
-            <Text
-              style={{
-                ...FONTS.body3c,
-                color: COLORS.white,
-                marginTop: SIZES.h4,
-              }}
-            >
-              Minecraft Education is a version of Minecraft created to help
-              students learn by doing. It's used in schools all over the world,
-              turning lessons in science, math, all history into meaningful
-              adventures.
-            </Text>
-          </View>
-          <TouchableOpacity
+            Making learning fun and inspiring
+          </Text>
+
+          <Text
             style={{
-              height: SIZES.h1 * 1.4,
-              width: SIZES.width * 0.35,
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: COLORS.cyan,
-              alignSelf: "center",
-              borderRadius: SIZES.h1,
-              marginTop: SIZES.h2,
+              ...FONTS.body3,
+              color: COLORS.white,
+              textAlign: "center",
+              marginTop: SIZES.h3,
+              lineHeight: SIZES.h2,
             }}
           >
-            <Text
-              style={{
-                ...FONTS.body3,
-                color: COLORS.primary_1,
-                fontFamily: "Inter-Bold",
-              }}
-            >
-              Show more
-            </Text>
-          </TouchableOpacity>
+            We create immersive gaming experiences that spark curiosity, fuel
+            creativity, and make education accessible to children everywhere.
+          </Text>
+
+          <Text
+            style={{
+              ...FONTS.body3,
+              color: COLORS.white,
+              textAlign: "center",
+              marginTop: SIZES.h3,
+              lineHeight: SIZES.h2,
+            }}
+          >
+            By combining the power of storytelling, game design, and education,
+            we bring complex ideas to life.
+          </Text>
+
+          <Text
+            style={{
+              ...FONTS.body3,
+              color: COLORS.white,
+              textAlign: "center",
+              marginTop: SIZES.h3,
+              lineHeight: SIZES.h2,
+            }}
+          >
+            From imaginative adventures to hands-on learning worlds for
+            classrooms, we believe play is one of the most powerful tools for
+            discovery.
+          </Text>
+
+          <Text
+            style={{
+              ...FONTS.body3,
+              color: COLORS.white,
+              textAlign: "center",
+              marginTop: SIZES.h3,
+              lineHeight: SIZES.h2,
+            }}
+          >
+            Our work reaches millions of players and students, but our focus is
+            always personal: helping each child connect, explore, and grow
+            through experiences that stay with them long after they've logged
+            out.
+          </Text>
+
+          <Text
+            style={{
+              ...FONTS.body3,
+              color: COLORS.white,
+              textAlign: "center",
+              marginTop: SIZES.h3,
+              lineHeight: SIZES.h2,
+            }}
+          >
+            If you're ready to reach a larger audience, we'd love to help.
+          </Text>
         </View>
-        <View style={{ marginBottom: SIZES.h2 * 2 }}>
-          {/* ready to take action */}
+
+        <View style={{ marginBottom: SIZES.h2 * 2, marginTop: SIZES.h1 * 1.5 }}>
+          {/* Ready to take action */}
           <View
             style={{
               backgroundColor: COLORS.gray6,
@@ -306,7 +346,7 @@ const ShapeScape = () => {
               goals. Let's bring your ideas and goals to life.
             </Text>
             <TouchableOpacity
-              onPress={() => navigation.navigate("ShapeBookCall" as never)}
+              onPress={() => navigation.navigate("ShapeContact" as never)}
               style={{
                 height: SIZES.h1 * 1.5,
                 width: SIZES.width * 0.5,
@@ -335,7 +375,8 @@ const ShapeScape = () => {
               }}
             />
           </View>
-          {/* footer */}
+
+          {/* Footer */}
           <View>
             <View
               style={{
@@ -375,7 +416,8 @@ const ShapeScape = () => {
               Building for players & brands worldwide
             </Text>
           </View>
-          {/* footer links */}
+
+          {/* Footer links */}
           <View
             style={{
               flexDirection: "row",
@@ -398,7 +440,8 @@ const ShapeScape = () => {
               );
             })}
           </View>
-          {/* subscribe section  */}
+
+          {/* Subscribe section */}
           <View>
             <Text style={{ ...FONTS.h2, color: COLORS.white }}>
               Subscribe to our newsletter
@@ -409,7 +452,8 @@ const ShapeScape = () => {
               We can't promise a new email every week, but can promise we won't
               spam you until we have a great announcement to share
             </Text>
-            {/* input section */}
+
+            {/* Input section */}
             <View
               style={{
                 flexDirection: "row",
@@ -524,7 +568,7 @@ const ShapeScape = () => {
   );
 };
 
-export default ShapeScape;
+export default ShapeAbout;
 
 const styles = StyleSheet.create({
   page: {
@@ -532,6 +576,23 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary_1,
     paddingTop: SIZES.h4,
     paddingHorizontal: SIZES.width * 0.05,
+  },
+  teamMember: {
+    width: "48%",
+    marginBottom: SIZES.h1,
+    alignItems: "center",
+  },
+  teamMemberImage: {
+    width: SIZES.width * 0.35,
+    height: SIZES.width * 0.35,
+    borderRadius: SIZES.h3,
+    marginBottom: SIZES.h4,
+  },
+  teamMemberName: {
+    ...FONTS.body3,
+    color: COLORS.white,
+    fontFamily: "Inter-Medium",
+    textAlign: "center",
   },
   bottomSheetContainer: {
     backgroundColor: COLORS.primary_1,
