@@ -9,8 +9,8 @@ const Onboarding = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate("Onboarding2");
-    }, 3000);
+      navigation.navigate("Step1");
+    }, 2000);
   }, []);
 
   return (
