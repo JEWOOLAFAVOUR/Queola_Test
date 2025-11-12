@@ -1,3 +1,5 @@
+import FormButton from "@/src/components/FormButton";
+import FormInput from "@/src/components/FormInput";
 import HeaderA from "@/src/components/HeaderA";
 import { COLORS, SIZES } from "@/src/constants/theme";
 import React from "react";
@@ -7,7 +9,9 @@ const Step1 = () => {
   return (
     <View style={styles.page}>
       <HeaderA />
-      <Text>Step1</Text>
+      <Text>What is your email address?</Text>
+      <FormInput placeholder="john.smith@gmail.com" />
+      <FormButton title={"Continue"} />
     </View>
   );
 };
