@@ -28,7 +28,7 @@ const IntroSlider = () => {
     },
     {
       id: 3,
-      title: "DinoRun",
+      title: "Bevel",
       onPress: () => navigation.navigate("ShapeScape"),
       bg: COLORS.gray,
     },
