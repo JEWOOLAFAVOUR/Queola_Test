@@ -12,6 +12,7 @@ import {
   View,
 } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { shapescapeFooterData } from "../components/data";
 import { COLORS, FONTS, images, SIZES } from "../constants";
 
@@ -91,7 +92,7 @@ const ShapeAbout = () => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={styles.page}>
         <StatusBar
           backgroundColor={COLORS.primary_1}
@@ -564,7 +565,7 @@ const ShapeAbout = () => {
           </View>
         </View>
       </RBSheet>
-    </View>
+    </SafeAreaView>
   );
 };
 

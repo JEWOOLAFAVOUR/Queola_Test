@@ -11,6 +11,7 @@ import {
   View,
 } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { COLORS, FONTS, SIZES } from "../constants";
 
 // Wolf Olins work data based on the website
@@ -187,7 +188,7 @@ const WolfWork = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={COLORS.white} barStyle="dark-content" />
 
       {/* Header */}
@@ -319,7 +320,7 @@ const WolfWork = () => {
       >
         {renderBottomSheet()}
       </RBSheet>
-    </View>
+    </SafeAreaView>
   );
 };
 

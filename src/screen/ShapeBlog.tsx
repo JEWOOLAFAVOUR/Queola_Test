@@ -11,6 +11,7 @@ import {
   View,
 } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { COLORS, FONTS, images, SIZES } from "../constants";
 
 const ShapeBlog = () => {
@@ -109,7 +110,7 @@ const ShapeBlog = () => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={styles.page}>
         <StatusBar
           backgroundColor={COLORS.primary_1}
@@ -499,7 +500,7 @@ const ShapeBlog = () => {
           </View>
         </View>
       </RBSheet>
-    </View>
+    </SafeAreaView>
   );
 };
 

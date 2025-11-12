@@ -12,6 +12,7 @@ import {
   View,
 } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { featuredNewsData } from "../components/data";
 import { COLORS, FONTS, SIZES, images } from "../constants";
 
@@ -174,7 +175,7 @@ const Wolffins = () => {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: COLORS.white }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
       <ScrollView style={styles.page}>
         <StatusBar backgroundColor={COLORS.white} barStyle={"dark-content"} />
         <View
@@ -683,7 +684,7 @@ const Wolffins = () => {
       >
         {renderBottomSheet()}
       </RBSheet>
-    </View>
+    </SafeAreaView>
   );
 };
 

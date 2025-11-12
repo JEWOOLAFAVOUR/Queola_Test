@@ -12,6 +12,7 @@ import {
   View,
 } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { COLORS, FONTS, SIZES } from "../constants";
 
 const ShapeBookCall = () => {
@@ -90,7 +91,7 @@ const ShapeBookCall = () => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={styles.page}>
         <StatusBar
           backgroundColor={COLORS.primary_1}
@@ -447,7 +448,7 @@ const ShapeBookCall = () => {
           </View>
         </View>
       </RBSheet>
-    </View>
+    </SafeAreaView>
   );
 };
 
