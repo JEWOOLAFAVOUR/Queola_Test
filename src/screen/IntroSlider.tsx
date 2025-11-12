@@ -29,7 +29,7 @@ const IntroSlider = () => {
     {
       id: 3,
       title: "Bevel",
-      onPress: () => navigation.navigate("ShapeScape"),
+      onPress: () => navigation.navigate("Onboarding"),
       bg: COLORS.gray,
     },
   ];

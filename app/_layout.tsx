@@ -1,3 +1,6 @@
+import Onboarding from "@/src/screen/Brevels/Onboarding";
+import Onboarding2 from "@/src/screen/Brevels/Onboarding2";
+import Onboarding3 from "@/src/screen/Brevels/Onboarding3";
 import IntroSlider from "@/src/screen/IntroSlider";
 import ShapeAbout from "@/src/screen/ShapeAbout";
 import ShapeBlog from "@/src/screen/ShapeBlog";
@@ -60,6 +63,11 @@ const _layout = () => {
           <Stack.Screen name="WolfAbout" component={WolfAbout} />
           <Stack.Screen name="WolfNews" component={WolfNews} />
           <Stack.Screen name="WolfContact" component={WolfContact} />
+
+          {/* brevel */}
+          <Stack.Screen name="Onboarding" component={Onboarding} />
+          <Stack.Screen name="Onboarding2" component={Onboarding2} />
+          <Stack.Screen name="Onboarding3" component={Onboarding3} />
         </Stack.Navigator>
       </NavigationContainer>
     </NavigationIndependentTree>
