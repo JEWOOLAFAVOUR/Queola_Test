@@ -1,9 +1,10 @@
+import { COLORS } from "@/src/constants";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 const Onboarding = () => {
   return (
-    <View>
+    <View style={styles.page}>
       <Text>Onboarding</Text>
     </View>
   );
@@ -11,4 +12,9 @@ const Onboarding = () => {
 
 export default Onboarding;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  page: {
+    flex: 1,
+    backgroundColor: COLORS.white,
+  },
+});
