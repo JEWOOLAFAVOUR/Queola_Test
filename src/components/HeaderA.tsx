@@ -1,11 +1,20 @@
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { SIZES } from "../constants";
 
 const HeaderA = () => {
+  const navigation = useNavigation();
   return (
     <View>
-      <MaterialIcons name="keyboard-arrow-left" size={24} color="black" />
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <MaterialIcons
+          name="keyboard-arrow-left"
+          size={SIZES.h1}
+          color="black"
+        />
+      </TouchableOpacity>
     </View>
   );
 };

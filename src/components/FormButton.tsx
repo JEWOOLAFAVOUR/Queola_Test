@@ -1,14 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { COLORS, FONTS, SIZES } from "../constants";
 
 interface FormButtonProps {
   title: string;
+  onPress: () => void;
 }
 
-const FormButton = ({ title }: FormButtonProps) => {
+const FormButton = ({ title, onPress }: FormButtonProps) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <Text
         style={{
           ...FONTS.body3c,
@@ -18,7 +19,7 @@ const FormButton = ({ title }: FormButtonProps) => {
       >
         {title}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

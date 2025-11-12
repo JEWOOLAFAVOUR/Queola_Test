@@ -21,9 +21,11 @@ export default FormInput;
 
 const styles = StyleSheet.create({
   container: {
-    height: SIZES.h1 * 1.5,
+    height: SIZES.h1 * 1.7,
     borderWidth: 1,
     borderColor: COLORS.chocolateBackground,
     justifyContent: "center",
+    borderRadius: SIZES.base,
+    paddingHorizontal: SIZES.width * 0.04,
   },
 });
