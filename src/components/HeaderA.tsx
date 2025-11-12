@@ -13,6 +13,7 @@ const HeaderA = () => {
           name="keyboard-arrow-left"
           size={SIZES.h1}
           color="black"
+          style={{ margin: 0 }}
         />
       </TouchableOpacity>
     </View>

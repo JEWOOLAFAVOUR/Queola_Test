@@ -15,7 +15,7 @@ const Step1 = () => {
         <View style={{ marginTop: SIZES.height * 0.37 }}>
           <Text
             style={{
-              ...FONTS.body3c,
+              ...FONTS.body3a,
               fontFamily: "Inter-Medium",
               color: COLORS.black,
               textAlign: "center",

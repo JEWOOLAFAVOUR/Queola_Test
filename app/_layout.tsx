@@ -3,6 +3,8 @@ import Onboarding2 from "@/src/screen/Brevels/Onboarding2";
 import Onboarding3 from "@/src/screen/Brevels/Onboarding3";
 import Step1 from "@/src/screen/Brevels/Step1";
 import Step2 from "@/src/screen/Brevels/Step2";
+import Step3 from "@/src/screen/Brevels/Step3";
+import Step4 from "@/src/screen/Brevels/Step4";
 import IntroSlider from "@/src/screen/IntroSlider";
 import ShapeAbout from "@/src/screen/ShapeAbout";
 import ShapeBlog from "@/src/screen/ShapeBlog";
@@ -72,6 +74,8 @@ const _layout = () => {
           <Stack.Screen name="Onboarding3" component={Onboarding3} />
           <Stack.Screen name="Step1" component={Step1} />
           <Stack.Screen name="Step2" component={Step2} />
+          <Stack.Screen name="Step3" component={Step3} />
+          <Stack.Screen name="Step4" component={Step4} />
         </Stack.Navigator>
       </NavigationContainer>
     </NavigationIndependentTree>

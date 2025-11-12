@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-const Step2 = () => {
+const Step3 = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.page}>
@@ -14,7 +14,7 @@ const Step2 = () => {
         <HeaderA />
         <View
           style={{
-            marginTop: SIZES.height * 0.3,
+            marginTop: SIZES.height * 0.2,
             marginHorizontal: SIZES.width * 0.1,
           }}
         >
@@ -33,24 +33,41 @@ const Step2 = () => {
               marginBottom: SIZES.h3,
             }}
           >
-            Check your inbox!
+            Privacy by design
           </Text>
           <Text
             style={{ ...FONTS.body4, color: COLORS.gray, textAlign: "center" }}
           >
-            Please tap on the link we just sent to your email on this device
+            All health data is stored and processed locally. We never sell or
+            share your information with third parties.
           </Text>
+        </View>
+        {/* container */}
+        <View style={styles.container}>
+          <View>
+            <Text>Terms of Service</Text>
+          </View>
+          <View
+            style={{ height: 1, width: "auto", backgroundColor: COLORS.gray2 }}
+          />
+          <View>
+            <Text>Privacy Policy</Text>
+          </View>
         </View>
       </View>
       <FormButton
-        title={"Resend Link"}
-        onPress={() => navigation.navigate("Step3")}
+        title={"Accept and continue"}
+        onPress={() => navigation.navigate("Step4")}
       />
+      <Text style={{ ...FONTS.body4, color: COLORS.gray2 }}>
+        By tapping on "Accept and continue", you agree to our Terms of Service
+        and Privacy Policy"
+      </Text>
     </View>
   );
 };
 
-export default Step2;
+export default Step3;
 
 const styles = StyleSheet.create({
   page: {
@@ -59,5 +76,12 @@ const styles = StyleSheet.create({
     paddingTop: SIZES.h4,
     paddingHorizontal: SIZES.width * 0.05,
     paddingBottom: SIZES.h1,
+  },
+  container: {
+    height: SIZES.height * 0.14,
+    borderWidth: 1,
+    borderColor: COLORS.gray2,
+    borderRadius: SIZES.h5,
+    marginTop: SIZES.h4,
   },
 });

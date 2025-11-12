@@ -1,7 +1,7 @@
 import { COLORS, images, SIZES } from "@/src/constants";
 import { useNavigation } from "@react-navigation/native";
 import React, { useEffect } from "react";
-import { Image, StatusBar, StyleSheet } from "react-native";
+import { Image, StatusBar, StyleSheet, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const Onboarding = () => {
@@ -16,10 +16,12 @@ const Onboarding = () => {
   return (
     <SafeAreaView style={styles.page}>
       <StatusBar backgroundColor={COLORS.white} barStyle={"dark-content"} />
-      <Image
-        source={images.logo}
-        style={{ height: SIZES.h1 * 3.5, width: SIZES.h1 * 3.5 }}
-      />
+      <TouchableOpacity onPress={() => navigation.navigate("Step1")}>
+        <Image
+          source={images.logo}
+          style={{ height: SIZES.h1 * 3.5, width: SIZES.h1 * 3.5 }}
+        />
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
