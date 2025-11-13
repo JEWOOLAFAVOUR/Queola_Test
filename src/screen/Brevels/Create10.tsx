@@ -109,7 +109,14 @@ const Create10 = () => {
         onPress={() => {
           if (selectedOptions.length > 0) {
             console.log("Selected fitness improvements:", selectedOptions);
-            // Complete onboarding or navigate to next screen
+            // Navigate based on selection - if cardio was selected, go to Create11, if strength go to Create12, otherwise to Create13
+            if (selectedOptions.includes("cardio")) {
+              (navigation as any).navigate("Create11");
+            } else if (selectedOptions.includes("strength")) {
+              (navigation as any).navigate("Create12");
+            } else {
+              (navigation as any).navigate("Create13");
+            }
           }
         }}
       />

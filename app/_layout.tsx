@@ -1,5 +1,13 @@
 import Create1 from "@/src/screen/Brevels/Create1";
 import Create10 from "@/src/screen/Brevels/Create10";
+import Create11 from "@/src/screen/Brevels/Create11";
+import Create12 from "@/src/screen/Brevels/Create12";
+import Create13 from "@/src/screen/Brevels/Create13";
+import Create14 from "@/src/screen/Brevels/Create14";
+import Create15 from "@/src/screen/Brevels/Create15";
+import Create16 from "@/src/screen/Brevels/Create16";
+import Create17 from "@/src/screen/Brevels/Create17";
+import Create18 from "@/src/screen/Brevels/Create18";
 import Create2 from "@/src/screen/Brevels/Create2";
 import Create3 from "@/src/screen/Brevels/Create3";
 import Create4 from "@/src/screen/Brevels/Create4";
@@ -96,6 +104,14 @@ const _layout = () => {
           <Stack.Screen name="Create8" component={Create8} />
           <Stack.Screen name="Create9" component={Create9} />
           <Stack.Screen name="Create10" component={Create10} />
+          <Stack.Screen name="Create11" component={Create11} />
+          <Stack.Screen name="Create12" component={Create12} />
+          <Stack.Screen name="Create13" component={Create13} />
+          <Stack.Screen name="Create14" component={Create14} />
+          <Stack.Screen name="Create15" component={Create15} />
+          <Stack.Screen name="Create16" component={Create16} />
+          <Stack.Screen name="Create17" component={Create17} />
+          <Stack.Screen name="Create18" component={Create18} />
         </Stack.Navigator>
       </NavigationContainer>
     </NavigationIndependentTree>
