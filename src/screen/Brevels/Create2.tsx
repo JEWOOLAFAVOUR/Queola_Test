@@ -1,9 +1,10 @@
+import { COLORS } from "@/src/constants";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 const Create2 = () => {
   return (
-    <View>
+    <View style={styles.page}>
       <Text>Create2</Text>
     </View>
   );
@@ -11,4 +12,9 @@ const Create2 = () => {
 
 export default Create2;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  page: {
+    flex: 1,
+    backgroundColor: COLORS.white,
+  },
+});

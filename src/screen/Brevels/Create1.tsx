@@ -1,6 +1,6 @@
 import FormButton from "@/src/components/FormButton";
 import FormInput from "@/src/components/FormInput";
-import HeaderA from "@/src/components/HeaderA";
+import HeaderB from "@/src/components/HeaderB";
 import { COLORS, FONTS, SIZES } from "@/src/constants/theme";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
@@ -11,7 +11,7 @@ const Create1 = () => {
   return (
     <View style={styles.page}>
       <View style={{ flex: 1 }}>
-        <HeaderA />
+        <HeaderB />
         <View style={{ marginTop: SIZES.height * 0.37 }}>
           <Text
             style={{
