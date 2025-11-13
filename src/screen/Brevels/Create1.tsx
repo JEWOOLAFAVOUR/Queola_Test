@@ -1,59 +1,41 @@
 import FormButton from "@/src/components/FormButton";
+import FormInput from "@/src/components/FormInput";
 import HeaderA from "@/src/components/HeaderA";
-import { images } from "@/src/constants";
 import { COLORS, FONTS, SIZES } from "@/src/constants/theme";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
-const Step4 = () => {
+const Create1 = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.page}>
       <View style={{ flex: 1 }}>
         <HeaderA />
-        <View
-          style={{
-            marginTop: SIZES.height * 0.3,
-            marginHorizontal: SIZES.width * 0.1,
-          }}
-        >
-          <Image
-            source={images.logo}
-            style={{
-              height: SIZES.h1 * 1.7,
-              width: SIZES.h1 * 1.7,
-              alignSelf: "center",
-              marginBottom: SIZES.h5,
-            }}
-          />
+        <View style={{ marginTop: SIZES.height * 0.37 }}>
           <Text
             style={{
-              ...FONTS.body2,
+              ...FONTS.body3a,
               fontFamily: "Inter-Medium",
               color: COLORS.black,
               textAlign: "center",
               marginBottom: SIZES.h3,
             }}
           >
-            Welcome to Bevel
+            What's your first name?
           </Text>
-          <Text
-            style={{ ...FONTS.body4, color: COLORS.gray, textAlign: "center" }}
-          >
-            Before you begin, let's take a few minutes to learn more about you!
-          </Text>
+          <FormInput placeholder="(e.g. John)" />
         </View>
       </View>
       <FormButton
         title={"Continue"}
-        onPress={() => navigation.navigate("Create1")}
+        onPress={() => navigation.navigate("Create2")}
       />
     </View>
   );
 };
 
-export default Step4;
+export default Create1;
 
 const styles = StyleSheet.create({
   page: {

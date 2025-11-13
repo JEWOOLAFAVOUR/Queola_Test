@@ -1,3 +1,5 @@
+import Create1 from "@/src/screen/Brevels/Create1";
+import Create2 from "@/src/screen/Brevels/Create2";
 import Onboarding from "@/src/screen/Brevels/Onboarding";
 import Onboarding2 from "@/src/screen/Brevels/Onboarding2";
 import Onboarding3 from "@/src/screen/Brevels/Onboarding3";
@@ -76,6 +78,8 @@ const _layout = () => {
           <Stack.Screen name="Step2" component={Step2} />
           <Stack.Screen name="Step3" component={Step3} />
           <Stack.Screen name="Step4" component={Step4} />
+          <Stack.Screen name="Create1" component={Create1} />
+          <Stack.Screen name="Create2" component={Create2} />
         </Stack.Navigator>
       </NavigationContainer>
     </NavigationIndependentTree>
