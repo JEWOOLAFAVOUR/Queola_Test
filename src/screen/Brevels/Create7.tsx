@@ -1,10 +1,10 @@
 import FormButton from "@/src/components/FormButton";
 import HeaderB from "@/src/components/HeaderB";
 import { COLORS, FONTS, SIZES } from "@/src/constants";
+import AntDesign from "@expo/vector-icons/AntDesign";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import AntDesign from "@expo/vector-icons/AntDesign";
 
 const Create7 = () => {
   const navigation = useNavigation();
@@ -41,12 +41,22 @@ const Create7 = () => {
       // For individual options
       if (selectedOptions.includes(optionId)) {
         // Remove the option and "all" if it was selected
-        setSelectedOptions(prev => prev.filter(id => id !== optionId && id !== "all"));
+        setSelectedOptions((prev) =>
+          prev.filter((id) => id !== optionId && id !== "all")
+        );
       } else {
         // Add the option
-        const newOptions = [...selectedOptions.filter(id => id !== "all"), optionId];
+        const newOptions = [
+          ...selectedOptions.filter((id) => id !== "all"),
+          optionId,
+        ];
         // If all individual options are selected, also select "all"
-        if (newOptions.length === 3 && newOptions.includes("schedule") && newOptions.includes("quality") && newOptions.includes("fall_asleep")) {
+        if (
+          newOptions.length === 3 &&
+          newOptions.includes("schedule") &&
+          newOptions.includes("quality") &&
+          newOptions.includes("fall_asleep")
+        ) {
           newOptions.push("all");
         }
         setSelectedOptions(newOptions);
@@ -66,7 +76,7 @@ const Create7 = () => {
           <Text style={styles.title}>
             What would you like to improve about your sleep?
           </Text>
-          
+
           <View style={styles.optionsContainer}>
             {sleepImprovements.map((improvement) => (
               <TouchableOpacity
@@ -78,10 +88,12 @@ const Create7 = () => {
                 onPress={() => toggleOption(improvement.id)}
               >
                 <Text style={styles.optionTitle}>{improvement.title}</Text>
-                <View style={[
-                  styles.checkbox,
-                  isSelected(improvement.id) && styles.checkedBox
-                ]}>
+                <View
+                  style={[
+                    styles.checkbox,
+                    isSelected(improvement.id) && styles.checkedBox,
+                  ]}
+                >
                   {isSelected(improvement.id) && (
                     <AntDesign name="check" size={16} color={COLORS.white} />
                   )}
@@ -91,7 +103,7 @@ const Create7 = () => {
           </View>
         </View>
       </View>
-      
+
       <FormButton
         title="Continue"
         onPress={() => {

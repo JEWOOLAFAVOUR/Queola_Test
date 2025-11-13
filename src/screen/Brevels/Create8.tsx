@@ -2,7 +2,7 @@ import FormButton from "@/src/components/FormButton";
 import { COLORS, FONTS, SIZES } from "@/src/constants";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { StyleSheet, Text, View, StatusBar } from "react-native";
+import { StatusBar, StyleSheet, Text, View } from "react-native";
 
 const Create8 = () => {
   const navigation = useNavigation();
@@ -40,19 +40,29 @@ const Create8 = () => {
 
   return (
     <View style={styles.page}>
-      <StatusBar backgroundColor={styles.page.backgroundColor} barStyle="light-content" />
-      
+      <StatusBar
+        backgroundColor={styles.page.backgroundColor}
+        barStyle="light-content"
+      />
+
       <View style={styles.content}>
         {/* Sleep Metrics */}
         <View style={styles.metricsContainer}>
           {sleepMetrics.map((metric, index) => (
-            <View key={metric.id} style={[styles.metricCard, { opacity: index >= 2 ? 1 : 1 }]}>
+            <View
+              key={metric.id}
+              style={[styles.metricCard, { opacity: index >= 2 ? 1 : 1 }]}
+            >
               <View style={styles.metricHeader}>
                 <View style={styles.iconContainer}>
                   <Text style={styles.metricIcon}>
-                    {metric.id === "efficiency" ? "😴" : 
-                     metric.id === "time_asleep" ? "🕐" :
-                     metric.id === "deep_sleep" ? "🌙" : "💭"}
+                    {metric.id === "efficiency"
+                      ? "😴"
+                      : metric.id === "time_asleep"
+                      ? "🕐"
+                      : metric.id === "deep_sleep"
+                      ? "🌙"
+                      : "💭"}
                   </Text>
                 </View>
                 <Text style={styles.metricTitle}>{metric.title}</Text>
@@ -60,17 +70,17 @@ const Create8 = () => {
                   {metric.status}
                 </Text>
               </View>
-              
+
               <View style={styles.progressContainer}>
                 <View style={styles.progressTrack}>
-                  <View 
+                  <View
                     style={[
-                      styles.progressBar, 
-                      { 
+                      styles.progressBar,
+                      {
                         width: `${metric.value}%`,
-                        backgroundColor: metric.color 
-                      }
-                    ]} 
+                        backgroundColor: metric.color,
+                      },
+                    ]}
                   />
                 </View>
               </View>
@@ -92,7 +102,7 @@ const Create8 = () => {
         {/* Stars Background */}
         <View style={styles.starsContainer}>
           {[...Array(20)].map((_, index) => (
-            <View 
+            <View
               key={index}
               style={[
                 styles.star,
@@ -100,20 +110,21 @@ const Create8 = () => {
                   left: `${Math.random() * 100}%`,
                   top: `${Math.random() * 80}%`,
                   opacity: Math.random() * 0.8 + 0.2,
-                }
+                },
               ]}
             />
           ))}
         </View>
-        
+
         <View style={styles.textContainer}>
           <Text style={styles.title}>Understand your sleep quality</Text>
           <Text style={styles.description}>
-            Bevel breaks down your sleep stages, heart rate trends, and efficiency to help you rest deeper and wake up feeling refreshed.
+            Bevel breaks down your sleep stages, heart rate trends, and
+            efficiency to help you rest deeper and wake up feeling refreshed.
           </Text>
         </View>
       </View>
-      
+
       <View style={styles.buttonContainer}>
         <FormButton
           title="Continue"

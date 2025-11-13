@@ -1,10 +1,10 @@
 import FormButton from "@/src/components/FormButton";
 import HeaderB from "@/src/components/HeaderB";
 import { COLORS, FONTS, SIZES } from "@/src/constants";
+import AntDesign from "@expo/vector-icons/AntDesign";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import AntDesign from "@expo/vector-icons/AntDesign";
 
 const Create9 = () => {
   const navigation = useNavigation();
@@ -13,7 +13,7 @@ const Create9 = () => {
   const focusOptions = [
     {
       id: "fitness",
-      title: "Lasting fitness", 
+      title: "Lasting fitness",
       description: "Building strength and endurance to be at your best.",
       icon: "💪",
     },
@@ -21,9 +21,9 @@ const Create9 = () => {
 
   const toggleOption = (optionId: string) => {
     if (selectedOptions.includes(optionId)) {
-      setSelectedOptions(prev => prev.filter(id => id !== optionId));
+      setSelectedOptions((prev) => prev.filter((id) => id !== optionId));
     } else {
-      setSelectedOptions(prev => [...prev, optionId]);
+      setSelectedOptions((prev) => [...prev, optionId]);
     }
   };
 
@@ -39,7 +39,7 @@ const Create9 = () => {
           <Text style={styles.title}>
             Is there anything else you'd like to focus on?
           </Text>
-          
+
           <View style={styles.optionsContainer}>
             {focusOptions.map((option) => (
               <TouchableOpacity
@@ -56,12 +56,16 @@ const Create9 = () => {
                   </View>
                   <View style={styles.textContainer}>
                     <Text style={styles.optionTitle}>{option.title}</Text>
-                    <Text style={styles.optionDescription}>{option.description}</Text>
+                    <Text style={styles.optionDescription}>
+                      {option.description}
+                    </Text>
                   </View>
-                  <View style={[
-                    styles.checkbox,
-                    isSelected(option.id) && styles.checkedBox
-                  ]}>
+                  <View
+                    style={[
+                      styles.checkbox,
+                      isSelected(option.id) && styles.checkedBox,
+                    ]}
+                  >
                     {isSelected(option.id) && (
                       <AntDesign name="check" size={16} color={COLORS.white} />
                     )}
@@ -72,9 +76,9 @@ const Create9 = () => {
           </View>
         </View>
       </View>
-      
+
       <View style={styles.buttonContainer}>
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.skipButton}
           onPress={() => {
             // Navigate to final screen or complete onboarding
@@ -83,7 +87,7 @@ const Create9 = () => {
         >
           <Text style={styles.skipText}>Skip</Text>
         </TouchableOpacity>
-        
+
         <FormButton
           title="Continue"
           onPress={() => {

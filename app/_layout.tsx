@@ -1,4 +1,5 @@
 import Create1 from "@/src/screen/Brevels/Create1";
+import Create10 from "@/src/screen/Brevels/Create10";
 import Create2 from "@/src/screen/Brevels/Create2";
 import Create3 from "@/src/screen/Brevels/Create3";
 import Create4 from "@/src/screen/Brevels/Create4";
@@ -7,7 +8,6 @@ import Create6 from "@/src/screen/Brevels/Create6";
 import Create7 from "@/src/screen/Brevels/Create7";
 import Create8 from "@/src/screen/Brevels/Create8";
 import Create9 from "@/src/screen/Brevels/Create9";
-import Create10 from "@/src/screen/Brevels/Create10";
 import Onboarding from "@/src/screen/Brevels/Onboarding";
 import Onboarding2 from "@/src/screen/Brevels/Onboarding2";
 import Onboarding3 from "@/src/screen/Brevels/Onboarding3";

@@ -1,4 +1,6 @@
 import booking_img from "../assets/images/booking_img.png";
+import image_11 from "../assets/images/image_11.png";
+import image_12 from "../assets/images/image_12.png";
 import logo from "../assets/images/logo.png";
 import shapescape_logo from "../assets/images/shapesape_logo.avif";
 import wolf_1 from "../assets/images/wolf_1.png";
@@ -10,6 +12,8 @@ import wolf_6 from "../assets/images/wolf_6.png";
 
 const images = {
   booking_img,
+  image_11,
+  image_12,
   logo,
   shapescape_logo,
   wolf_1,
