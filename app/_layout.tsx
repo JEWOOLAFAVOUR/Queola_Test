@@ -2,6 +2,12 @@ import Create1 from "@/src/screen/Brevels/Create1";
 import Create2 from "@/src/screen/Brevels/Create2";
 import Create3 from "@/src/screen/Brevels/Create3";
 import Create4 from "@/src/screen/Brevels/Create4";
+import Create5 from "@/src/screen/Brevels/Create5";
+import Create6 from "@/src/screen/Brevels/Create6";
+import Create7 from "@/src/screen/Brevels/Create7";
+import Create8 from "@/src/screen/Brevels/Create8";
+import Create9 from "@/src/screen/Brevels/Create9";
+import Create10 from "@/src/screen/Brevels/Create10";
 import Onboarding from "@/src/screen/Brevels/Onboarding";
 import Onboarding2 from "@/src/screen/Brevels/Onboarding2";
 import Onboarding3 from "@/src/screen/Brevels/Onboarding3";
@@ -84,6 +90,12 @@ const _layout = () => {
           <Stack.Screen name="Create2" component={Create2} />
           <Stack.Screen name="Create3" component={Create3} />
           <Stack.Screen name="Create4" component={Create4} />
+          <Stack.Screen name="Create5" component={Create5} />
+          <Stack.Screen name="Create6" component={Create6} />
+          <Stack.Screen name="Create7" component={Create7} />
+          <Stack.Screen name="Create8" component={Create8} />
+          <Stack.Screen name="Create9" component={Create9} />
+          <Stack.Screen name="Create10" component={Create10} />
         </Stack.Navigator>
       </NavigationContainer>
     </NavigationIndependentTree>

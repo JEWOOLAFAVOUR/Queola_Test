@@ -1,28 +1,22 @@
 import FormButton from "@/src/components/FormButton";
 import HeaderB from "@/src/components/HeaderB";
 import { COLORS, FONTS, SIZES } from "@/src/constants";
+import AntDesign from "@expo/vector-icons/AntDesign";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const Create3 = () => {
+const Create6 = () => {
   const navigation = useNavigation();
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
-  const healthOptions = [
+  const focusOptions = [
     {
       id: "sleep",
       title: "Better sleep",
       description:
         "Feeling rested every night and maintaining good sleep habits.",
       icon: "🌙",
-    },
-    {
-      id: "wellbeing",
-      title: "Improved wellbeing",
-      description:
-        "Eating better, stressing less, and forming habits that help you thrive.",
-      icon: "😌",
     },
     {
       id: "fitness",
@@ -32,24 +26,36 @@ const Create3 = () => {
     },
   ];
 
+  const toggleOption = (optionId: string) => {
+    if (selectedOptions.includes(optionId)) {
+      setSelectedOptions((prev) => prev.filter((id) => id !== optionId));
+    } else {
+      setSelectedOptions((prev) => [...prev, optionId]);
+    }
+  };
+
+  const isSelected = (optionId: string) => {
+    return selectedOptions.includes(optionId);
+  };
+
   return (
     <View style={styles.page}>
       <View style={{ flex: 1 }}>
         <HeaderB />
         <View style={styles.content}>
           <Text style={styles.title}>
-            What is the most important aspect of health for you?
+            Is there anything else you'd like to focus on?
           </Text>
 
           <View style={styles.optionsContainer}>
-            {healthOptions.map((option) => (
+            {focusOptions.map((option) => (
               <TouchableOpacity
                 key={option.id}
                 style={[
                   styles.optionCard,
-                  selectedOption === option.id && styles.selectedCard,
+                  isSelected(option.id) && styles.selectedCard,
                 ]}
-                onPress={() => setSelectedOption(option.id)}
+                onPress={() => toggleOption(option.id)}
               >
                 <View style={styles.cardContent}>
                   <View style={styles.iconContainer}>
@@ -61,6 +67,16 @@ const Create3 = () => {
                       {option.description}
                     </Text>
                   </View>
+                  <View
+                    style={[
+                      styles.checkbox,
+                      isSelected(option.id) && styles.checkedBox,
+                    ]}
+                  >
+                    {isSelected(option.id) && (
+                      <AntDesign name="check" size={16} color={COLORS.white} />
+                    )}
+                  </View>
                 </View>
               </TouchableOpacity>
             ))}
@@ -68,19 +84,43 @@ const Create3 = () => {
         </View>
       </View>
 
-      <FormButton
-        title="Continue"
-        onPress={() => {
-          if (selectedOption) {
-            (navigation as any).navigate("Create4");
-          }
-        }}
-      />
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.skipButton}
+          onPress={() => {
+            if (selectedOptions.includes("sleep")) {
+              (navigation as any).navigate("Create7");
+            } else if (selectedOptions.includes("fitness")) {
+              (navigation as any).navigate("Create9");
+            } else {
+              // Complete onboarding if nothing selected and skipped
+              console.log("Skipped additional focus areas");
+            }
+          }}
+        >
+          <Text style={styles.skipText}>Skip</Text>
+        </TouchableOpacity>
+
+        <FormButton
+          title="Continue"
+          onPress={() => {
+            console.log("Selected additional options:", selectedOptions);
+            if (selectedOptions.includes("sleep")) {
+              (navigation as any).navigate("Create7");
+            } else if (selectedOptions.includes("fitness")) {
+              (navigation as any).navigate("Create9");
+            } else {
+              // If nothing is selected but they pressed Continue
+              console.log("No options selected");
+            }
+          }}
+        />
+      </View>
     </View>
   );
 };
 
-export default Create3;
+export default Create6;
 
 const styles = StyleSheet.create({
   page: {
@@ -98,7 +138,7 @@ const styles = StyleSheet.create({
     ...FONTS.h2,
     color: COLORS.black,
     textAlign: "center",
-    marginBottom: SIZES.h1,
+    marginBottom: SIZES.h1 * 1.5,
     lineHeight: SIZES.h2 * 1.4,
   },
   optionsContainer: {
@@ -150,5 +190,32 @@ const styles = StyleSheet.create({
     ...FONTS.body4,
     color: COLORS.gray,
     lineHeight: SIZES.body4 * 1.4,
+  },
+  checkbox: {
+    width: 24,
+    height: 24,
+    borderRadius: 4,
+    borderWidth: 2,
+    borderColor: COLORS.gray,
+    backgroundColor: COLORS.white,
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: SIZES.h4,
+  },
+  checkedBox: {
+    backgroundColor: COLORS.black,
+    borderColor: COLORS.black,
+  },
+  buttonContainer: {
+    gap: SIZES.h4,
+  },
+  skipButton: {
+    alignItems: "center",
+    paddingVertical: SIZES.h4,
+  },
+  skipText: {
+    ...FONTS.body2,
+    color: COLORS.gray,
+    fontFamily: "Inter-Medium",
   },
 });

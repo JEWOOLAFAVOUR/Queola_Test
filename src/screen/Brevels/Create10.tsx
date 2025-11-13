@@ -1,27 +1,27 @@
 import FormButton from "@/src/components/FormButton";
 import HeaderB from "@/src/components/HeaderB";
 import { COLORS, FONTS, SIZES } from "@/src/constants";
-import AntDesign from "@expo/vector-icons/AntDesign";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
-const Create4 = () => {
+const Create10 = () => {
   const navigation = useNavigation();
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
-  const challenges = [
+  const fitnessImprovements = [
     {
-      id: "eating",
-      title: "Unhealthy eating habits",
+      id: "cardio",
+      title: "Improve cardio capacity",
     },
     {
-      id: "stress",
-      title: "Difficulty managing stress",
+      id: "routine",
+      title: "Establish a consistent training routine",
     },
     {
-      id: "lifestyle",
-      title: "Poor lifestyle choices",
+      id: "strength",
+      title: "Build muscular strength",
     },
     {
       id: "all",
@@ -35,28 +35,18 @@ const Create4 = () => {
       if (selectedOptions.includes("all")) {
         setSelectedOptions([]);
       } else {
-        setSelectedOptions(["eating", "stress", "lifestyle", "all"]);
+        setSelectedOptions(["cardio", "routine", "strength", "all"]);
       }
     } else {
       // For individual options
       if (selectedOptions.includes(optionId)) {
         // Remove the option and "all" if it was selected
-        setSelectedOptions((prev) =>
-          prev.filter((id) => id !== optionId && id !== "all")
-        );
+        setSelectedOptions(prev => prev.filter(id => id !== optionId && id !== "all"));
       } else {
         // Add the option
-        const newOptions = [
-          ...selectedOptions.filter((id) => id !== "all"),
-          optionId,
-        ];
+        const newOptions = [...selectedOptions.filter(id => id !== "all"), optionId];
         // If all individual options are selected, also select "all"
-        if (
-          newOptions.length === 3 &&
-          newOptions.includes("eating") &&
-          newOptions.includes("stress") &&
-          newOptions.includes("lifestyle")
-        ) {
+        if (newOptions.length === 3 && newOptions.includes("cardio") && newOptions.includes("routine") && newOptions.includes("strength")) {
           newOptions.push("all");
         }
         setSelectedOptions(newOptions);
@@ -74,27 +64,25 @@ const Create4 = () => {
         <HeaderB />
         <View style={styles.content}>
           <Text style={styles.title}>
-            What's holding you back from feeling your best?
+            What part of fitness do you want to improve?
           </Text>
-
+          
           <View style={styles.optionsContainer}>
-            {challenges.map((challenge) => (
+            {fitnessImprovements.map((improvement) => (
               <TouchableOpacity
-                key={challenge.id}
+                key={improvement.id}
                 style={[
                   styles.optionCard,
-                  isSelected(challenge.id) && styles.selectedCard,
+                  isSelected(improvement.id) && styles.selectedCard,
                 ]}
-                onPress={() => toggleOption(challenge.id)}
+                onPress={() => toggleOption(improvement.id)}
               >
-                <Text style={styles.optionTitle}>{challenge.title}</Text>
-                <View
-                  style={[
-                    styles.checkbox,
-                    isSelected(challenge.id) && styles.checkedBox,
-                  ]}
-                >
-                  {isSelected(challenge.id) && (
+                <Text style={styles.optionTitle}>{improvement.title}</Text>
+                <View style={[
+                  styles.checkbox,
+                  isSelected(improvement.id) && styles.checkedBox
+                ]}>
+                  {isSelected(improvement.id) && (
                     <AntDesign name="check" size={16} color={COLORS.white} />
                   )}
                 </View>
@@ -103,12 +91,13 @@ const Create4 = () => {
           </View>
         </View>
       </View>
-
+      
       <FormButton
         title="Continue"
         onPress={() => {
           if (selectedOptions.length > 0) {
-            (navigation as any).navigate("Create5");
+            console.log("Selected fitness improvements:", selectedOptions);
+            // Complete onboarding or navigate to next screen
           }
         }}
       />
@@ -116,7 +105,7 @@ const Create4 = () => {
   );
 };
 
-export default Create4;
+export default Create10;
 
 const styles = StyleSheet.create({
   page: {
