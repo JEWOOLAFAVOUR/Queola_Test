@@ -4,6 +4,7 @@ import { COLORS, FONTS, SIZES } from "@/src/constants";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Create15 = () => {
   const navigation = useNavigation();
@@ -62,7 +63,7 @@ const Create15 = () => {
   );
 
   return (
-    <View style={styles.page}>
+    <SafeAreaView style={styles.page}>
       <View style={{ flex: 1 }}>
         <HeaderB />
         <View style={styles.content}>
@@ -85,7 +86,7 @@ const Create15 = () => {
           (navigation as any).navigate("Create16");
         }}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

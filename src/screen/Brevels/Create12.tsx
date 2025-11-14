@@ -3,12 +3,13 @@ import { COLORS, FONTS, SIZES } from "@/src/constants";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Create12 = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* Main Content Area with Blue Background */}
       <View style={styles.mainContent}>
         {/* Exercise Cards Row */}
@@ -92,7 +93,7 @@ const Create12 = () => {
           }}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

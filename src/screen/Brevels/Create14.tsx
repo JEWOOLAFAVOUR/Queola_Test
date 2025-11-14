@@ -4,12 +4,13 @@ import { COLORS, FONTS, SIZES } from "@/src/constants";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Create14 = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.page}>
+    <SafeAreaView style={styles.page}>
       <View style={{ flex: 1 }}>
         <HeaderB />
         <View style={styles.content}>
@@ -36,7 +37,7 @@ const Create14 = () => {
           // Complete onboarding flow
         }}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

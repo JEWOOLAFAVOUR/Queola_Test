@@ -3,6 +3,7 @@ import { COLORS, FONTS, SIZES } from "@/src/constants";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StatusBar, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Create8 = () => {
   const navigation = useNavigation();
@@ -39,7 +40,7 @@ const Create8 = () => {
   ];
 
   return (
-    <View style={styles.page}>
+    <SafeAreaView style={styles.page}>
       <StatusBar
         backgroundColor={styles.page.backgroundColor}
         barStyle="light-content"
@@ -133,7 +134,7 @@ const Create8 = () => {
           }}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -1,12 +1,13 @@
 import { COLORS } from "@/src/constants";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Onboarding2 = () => {
   return (
-    <View style={styles.page}>
+    <SafeAreaView style={styles.page}>
       <Text>Onboarding2</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 

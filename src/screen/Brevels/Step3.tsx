@@ -5,11 +5,12 @@ import Feather from "@expo/vector-icons/Feather";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Step3 = () => {
   const navigation = useNavigation();
   return (
-    <View style={styles.page}>
+    <SafeAreaView style={styles.page}>
       <View style={{ flex: 1 }}>
         <HeaderA />
         <View
@@ -63,7 +64,7 @@ const Step3 = () => {
         By tapping on "Accept and continue", you agree to our Terms of Service
         and Privacy Policy"
       </Text>
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -4,11 +4,12 @@ import { COLORS, FONTS, SIZES } from "@/src/constants";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Create2 = () => {
   const navigation = useNavigation();
   return (
-    <View style={styles.page}>
+    <SafeAreaView style={styles.page}>
       <View style={{ flex: 1 }}>
         <HeaderB />
         <View style={{ alignItems: "center", marginTop: SIZES.height * 0.33 }}>
@@ -35,7 +36,7 @@ const Create2 = () => {
         title="Continue"
         onPress={() => navigation.navigate("Create3")}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

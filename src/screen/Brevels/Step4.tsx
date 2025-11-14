@@ -5,11 +5,12 @@ import { COLORS, FONTS, SIZES } from "@/src/constants/theme";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Step4 = () => {
   const navigation = useNavigation();
   return (
-    <View style={styles.page}>
+    <SafeAreaView style={styles.page}>
       <View style={{ flex: 1 }}>
         <HeaderA />
         <View
@@ -49,7 +50,7 @@ const Step4 = () => {
         title={"Continue"}
         onPress={() => navigation.navigate("Create1")}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

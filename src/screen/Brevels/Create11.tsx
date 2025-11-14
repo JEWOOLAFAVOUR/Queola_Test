@@ -3,6 +3,7 @@ import { COLORS, FONTS, SIZES } from "@/src/constants";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Dimensions, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const { width, height } = Dimensions.get("window");
 
@@ -10,7 +11,7 @@ const Create11 = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* Map Background */}
       <View style={styles.mapContainer}>
         <View style={styles.mapOverlay}>
@@ -84,7 +85,7 @@ const Create11 = () => {
           }}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

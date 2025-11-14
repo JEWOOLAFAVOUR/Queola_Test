@@ -4,6 +4,7 @@ import { COLORS, FONTS, SIZES } from "@/src/constants";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Create3 = () => {
   const navigation = useNavigation();
@@ -33,7 +34,7 @@ const Create3 = () => {
   ];
 
   return (
-    <View style={styles.page}>
+    <SafeAreaView style={styles.page}>
       <View style={{ flex: 1 }}>
         <HeaderB />
         <View style={styles.content}>
@@ -76,7 +77,7 @@ const Create3 = () => {
           }
         }}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -5,11 +5,12 @@ import Feather from "@expo/vector-icons/Feather";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Step2 = () => {
   const navigation = useNavigation();
   return (
-    <View style={styles.page}>
+    <SafeAreaView style={styles.page}>
       <View style={{ flex: 1 }}>
         <HeaderA />
         <View
@@ -46,7 +47,7 @@ const Step2 = () => {
         title={"Resend Link"}
         onPress={() => navigation.navigate("Step3")}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

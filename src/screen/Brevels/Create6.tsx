@@ -5,6 +5,7 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Create6 = () => {
   const navigation = useNavigation();
@@ -39,7 +40,7 @@ const Create6 = () => {
   };
 
   return (
-    <View style={styles.page}>
+    <SafeAreaView style={styles.page}>
       <View style={{ flex: 1 }}>
         <HeaderB />
         <View style={styles.content}>
@@ -116,7 +117,7 @@ const Create6 = () => {
           }}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
